@@ -1,5 +1,5 @@
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: #dfe9eb;
    margin: 0;
   padding: 0;
@@ -31,8 +31,10 @@ font-weight:bold;
 .right-side {
 margin-right:91px;
 font-size:21px;
+display: flex;
+align-items: center;
 
-font-weight:2;
+font-weight:bold;
 
 }
 
@@ -70,9 +72,9 @@ font-weight:2;
 }
 
 .sidebar a {
-  padding: 8px 8px 8px 100px;
+  padding: 8px 8px 8px 90px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
 
   display: block;
   transition: 0.3s;
@@ -81,7 +83,7 @@ font-weight:2;
 .sidebar2 a {
   padding: 8px 8px 8px 35px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
 
   display: block;
   transition: 0.3s;
@@ -97,12 +99,13 @@ font-weight:2;
     text-align:center;
     margin-top:50px;
     font-size: 34px;
-    margin-bottom:102px;
+    margin-bottom:62px;
 }
 
 .togleimg{
 margin-top:50px;
-margin-bottom:97px;
+margin-bottom:57px;
+
 }
 
 .textsidebar{
@@ -148,6 +151,240 @@ margin-top:7px;
     color:white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1); /* Shadow effect on hover */
 }
+
+
+
+/*
+Reception Page
+
+*/
+
+.search{
+    width:379px;
+    height:55px;
+    border-radius:10px;
+    border:none;
+    margin-right: 6px;
+    padding: 5px 5px 5px 45px;
+}
+.search-box {
+    position: relative;
+    margin-right: 10px;
+}
+
+.bellbox{
+width:55px;
+height:55px;
+background:white;
+margin-right:15px;
+border-radius:10px;
+text-align:center;
+padding-top:11px;
+font-size:20px;
+color:#4682B4!important;
+cursor:pointer;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+.container
+{
+display:flex;
+
+}
+
+.total_patient,.pending_patient,.checked_patient{
+margin-top:50px;
+margin-right:10px;
+display: flex;
+height:82px;
+width:209px;
+border-radius:10px;
+background:white;
+position: relative;
+
+}
+
+.upper3divs
+{
+margin-left:40px;
+display: flex;
+}
+
+.re_register_patient,.add_patient{
+margin-top:17px;
+margin-right:10px;
+height:110px;
+width:319px;
+border-radius:10px;
+background:white;
+}
+.lower2divs
+{
+margin-left:40px;
+display: flex;
+}
+
+.pharmacy
+{
+margin-top:50px;
+margin-right:10px;
+height:209px;
+width:437px;
+border-radius:10px;
+background:white;
+
+}
+.patient_pic
+{
+width:62px;
+height:60px;
+margin-left:10px;
+margin-top:10px;
+margin-right:23px;
+}
+.count
+{
+font-size:24px;
+font-weight:bold;
+margin-top:20px;
+padding-bottom:0px!important;
+margin-bottom:0px!important;
+}
+.small
+{
+
+color:grey;
+font-size:12px;
+
+
+}
+.dots {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 20px;
+    color: #888;
+}
+.menuicon {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-weight:bold;
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+}
+
+.re_register_patient h1,.add_patient h1,.pharmacyupper h1{
+font-size:18px;
+margin-left:10px;
+margin-top:15px;
+font-weight:bold;
+}
+
+.Add
+{
+width:118px!important;
+height:52px!important;
+font:18px;
+background-color:#4682B4!important;
+padding-top:13px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+font-weight:bold;
+margin-right:10px;
+}
+.Add:hover
+{
+color:white;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+}
+.button_parent
+{
+display: flex;
+    justify-content: flex-end;
+}
+
+.pharmacyupper
+{
+display:flex;
+justify-content: space-between;
+align-items: center;
+
+}
+.view
+{
+font-size:18px;
+color:#4682B4;
+margin-right:20px;
+margin-top:10px;
+
+}
+.pharmacyimage
+{
+width:229px;
+height:152px;
+
+}
+
+
+.table
+{
+
+display: inline-block;
+border: 1px solid #ccc;
+width: fit-content;
+margin-bottom: 1rem!important;
+margin-top:10px;
+height:20rem;
+width:100%;
+font-size: 15px;
+text-indent: initial;
+background:white;
+margin-left:40px;
+margin-right:13px;
+border-radius:10px;
+
+}
+
+
+
+table {
+
+    width: 100%;
+}
+
+th, td {
+    border-bottom: 2px solid #ddd;
+    text-align: center;
+
+    height:80px;
+    font-size:14px;
+}
+
+th {
+    background-color: #B5CDE1;
+    height:70px;
+    font-size:18px;
+    font-weight:bold;
+    padding-bottom:10px;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -316,24 +553,6 @@ margin-left:0px!important;
 }
 
 
-.table::-webkit-scrollbar {
-  width: 7px;
-  height:10px;
-}
-
-.table,::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px black;
-
-}
-/* Handle */
-.table::-webkit-scrollbar-thumb {
-  background: #084164;
-  border-radius: 10px;
-}
-
-.table::-webkit-scrollbar-thumb:hover {
-  background:#084164 ;
-}
 
 .sidebar::-webkit-scrollbar {
   width: 7px;
@@ -385,24 +604,7 @@ background:white!important;
 }
 
 
-.table
-{
-margin-bottom: 1rem!important;
-width: 100%;
-max-width: 100%;
-font-size: 15px;
-text-indent: initial;
-background:white;
-border-spacing: 2px;
-font-family: Arial, Helvetica, sans-serif;
-
-}
-
-.table td,.table th
-{
-
-padding: 6px;
 
 
-}
+
 

@@ -25,9 +25,9 @@ def form_page():
 
 
 
-@app.route('/home/<category>', methods = ['GET', 'POST'])
+@app.route('/<category>', methods = ['GET', 'POST'])
 def reception_page(category):
-    pass
+    return render_template('reception.html')
 
 
     

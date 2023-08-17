@@ -1,151 +1,118 @@
 {% extends 'base.html' %}
 
 {% block title %}
-{{name.upper()}} page
+Reception Page
 {% endblock %}
 
+
+
+
 {% block content %}
+
+
 <div class="container">
-{% if name == 'admin' %}
-
-<div class="row">
-    <div class="col">
-        <div class="card">
-            <div class="card-body card-1">                               
-                <form action="" method="post">
-                    <input type="submit" value="Export Database" class="btn" style="background-color: transparent;">
-                </form>               
+<div>
+<div class="upper3divs">
+    <div class="total_patient">
+            <div class="menuicon">&#8942;</div>
+        <img src="./static/admin.png" alt="Image" class="patient_pic">
+        <div>
+        <span><h3 class="count">1568</h3></span>
+        <small class="small">Total Patient</small>
             </div>
+
+
+    </div>
+    <div class="pending_patient">
+<div class="menuicon">&#8942;</div>
+        <img src="./static/admin.png" alt="Image" class="patient_pic">
+        <div>
+        <span><h3 class="count">256</h3></span>
+        <small class="small">Pending Patient</small>
+            </div>
+    </div>
+
+
+
+    <div class="checked_patient">
+<div class="menuicon">&#8942;</div>
+        <img src="./static/admin.png" alt="Image" class="patient_pic">
+        <div>
+        <span><h3 class="count">300</h3></span>
+        <small class="small">Checked Patient</small>
+            </div>
+    </div>
+</div>
+    <div class="lower2divs">
+
+    <div class="re_register_patient">
+    <h1>Re- Register Patient</h1>
+        <div class="button_parent">
+        <a href="#" class="Add btn"> + Add</a>
+            </div>
+
+    </div>
+    <div class="add_patient">
+    <h1>Add Patient</h1>
+        <div class="button_parent">
+        <a href="#" class="Add btn"> + Add</a>
+            </div>
+    </div>
+    </div>
+</div>
+
+    <div class="pharmacy">
+    <div class="pharmacyupper">
+        <h1>Pharmacy</h1>
+        <a href="#" class="view">View More</a>
+    </div>
+        <div style="text-align:center; margin-top:0px!important;">
+        <img src="./static/pharmacy.png" alt="Pharmacy" class="pharmacyimage">
+            </div>
+        <div>
+
         </div>
     </div>
 
-    <div class="col">
-        <div class="card">
-            <div class="card-body card-1">                               
-                <a href="{{ url_for('free_patients') }}">
-                    <h5>Free Patients</h5>
-                </a>                               
-            </div>
-        </div>
-    </div>
-    </div>
+</div>
+<div class="container">
+<div class="table">
 
 
-{%else%}
-
-<div class="row" style="margin-right:0%;">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-body card-1">
-               
-                <a href="{{ url_for('patient_page', name = name) }}">
-                    <h5>Check Patient</h5>
-                    
-                </a>
-               
-            </div>
-        </div>
+    <div class="pharmacyupper">
+        <h1>Check Patients</h1>
+        <a href="#" class="view">View More</a>
     </div>
 
-    <div class="col-md-6">
-    
-        <div class="card">
-            <div class="card-body card-1">
-                
-                <a href="{{ url_for('swmc_page', name = loc, path = name) }}">
+    <table>
+        <thead>
+            <tr>
+                <th>MRN</th>
+                <th>Name</th>
+                <th>Father's Name</th>
+                <th>Date of Birth</th>
+                <th>Doctor</th>
+                <th>Actions</th>
 
-                    <h5>View Data</h5>
-                </a>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 1</td>
+                <td>Data 2</td>
 
-            </div>
-        </div>
-    </div>
-    
+            </tr>
+
+        </tbody>
+    </table>
+
 
 
 </div>
-
-<br>
-{% if name == 'pharmacy' %}
-    <div class="row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body card-1">
-
-                    <a href="{{ url_for('med_page') }}">
-
-                        <h5>Add Medicine</h5>
-                    </a>
-
-                </div>
-            </div>
-        </div>        
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-body card-1">
-
-                    <!-- <a href="{{ url_for('med_page') }}">
-
-                        <h5>Add Medicine</h5>
-                    </a> -->
-                    <!-- <button id = "myButton" class="btn btn-light" onclick="showInput()">Upload Medicne List</button> -->
-                    <a href="#" onclick="showInput()" id = 'myButton'>
-                        <h5>Upload Medicine</h5>
-                    </a>
-                    <form action="" method="post" enctype="multipart/form-data">                        
-                        <input type="file" name="file" id="myInput" class="form-control-sm form-control-file" onchange="form.submit()" style="display: none;">
-                    </form>
-
-                </div>
-            </div>
-        </div>
-    </div>
-{%endif%}
-
-{% if name == 'reception' %}
-<div class="col" style="text-align: center;">
-    <div class="card">
-        <div class="card-body card-1">
-            
-            <a href="{{ url_for('form_page',name = name)}}">
-
-                <h5>Add Patient</h5>
-            </a>
-            
-        </div>
-    </div>
 </div>
-{%endif%}
-
-{% if name == 'laboratory' or name == 'radiology' %}
-<div class="col" style="text-align: center;">
-    <div class="card">
-        <div class="card-body card-1">
-            
-            <a href="#">
-
-                <h5>Add Labs</h5>
-            </a>
-            
-        </div>
-    </div>
-</div>
-{%endif%}
-
-{% endif %}
-</div>
-
-<script>
-    function showInput() {
-    // Get references to the input and button elements
-    var input = document.getElementById("myInput");
-    var button = document.getElementById("myButton");
-
-    // Show the input and hide the button
-    input.style.display = "";
-    button.style.display = "none";
-}
-
-</script>
 
 {% endblock %}
