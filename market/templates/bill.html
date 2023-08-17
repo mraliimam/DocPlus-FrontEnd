@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>INVOICE</title>
+  </head>
+  <body>
+    <div class="container">
+		<br><br>
+		<div class="row" style="display: flex; justify-content: center;">
+			<div class="col-2">
+				<img src="{{ url_for('static', filename='Ready.png')}}" alt="code logo">
+			</div>			
+			<div class="col-6">
+				<h2 style="color: green;">Salhad Welfare Medical Center</h2>
+				<p class="sub_title">Shop # 101M, Mohallah Madni</p>
+				<p class="sub_title">P.O. Salhad, Tehsil and District Abbottabad</p>
+			</div>
+		</div>
+		<br><br><br>
+
+		<div class="row">
+			<div class="col">
+				<p><strong>Patient Details:</strong></p>
+				<br>
+				<p><strong>Name:</strong> {{pList.Name}}</p> 
+				<span>
+				<strong>MRN no:</strong>  
+				{{pList.MRN}} 
+			    </span>
+				<p><strong>CNIC:</strong> {{pList.CNIC}}</p> <br/>
+			</div>
+			<div class="col" style="text-align: right;">
+				<p class="invoice bold">Date: <strong>{{pData.Visited}}</strong></p>
+				<br>
+				<p class="invoice bold">Invoice: <strong>#{{pData.id}}</strong></p>
+				
+				<p class="invoice bold"><strong>Father/Husband Name: </strong>{{pList.Father_Name}}</p>
+				
+				<p class="invoice bold"><strong>Date of Birth: </strong>{{pList.Date_of_Birth}}</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-6">
+				<h3 class="title" style="text-align: center;">GENERAL SERVICE</h3>
+				<div>
+					<table class="table table-sm table-striped">
+						<thead>
+							<tr>
+								<th>Type Of Service</th>
+								<th>Price</th>
+							</tr>
+						</thead>
+						<tbody>
+							<td>{{pData.Type_of_Service}}</td>
+							<td>{{pFee.Registration}}</td>
+						</tbody>
+					</table>
+				</div>
+				{% if med %}
+				<br>
+				<h3 style="text-align: center;">PHARMACY</h3> 
+				<div>
+					<table class="table table-sm table-striped">
+						<thead>
+							<tr>
+								<th>Item</th>
+								<th>Expiry</th>
+								<th>Price</th>
+								<th>Quantity</th>
+								<th>Total</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for item in med %}
+								<tr>
+									<td>{{ item[0] }}</td>
+									<td>{{ item[1] }}</td>
+									<td>{{ item[2] }}</td>
+									<td>{{ item[3] }}</td>
+									<td>{{ item[4] }}</td>
+								</tr>
+							{% endfor %}
+							<tr>
+								<th colspan="2" style="text-align: center;">Total:</th>
+								<th colspan="3" style="text-align: center;">{{pFee.Medicine|round(2)}}</th>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				{%endif%}
+				<br>
+				{% if lab %}
+				<br>
+				<h3 style="text-align: center;">LABORATORY</h3>
+				<div>
+					<table class="table table-sm table-striped">
+						<thead>
+							<tr>
+								<th>Item</th>
+								<th>Price</th>
+								<th>Quantity</th>
+								<th>Total</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for item in lab %}
+								<tr>
+									<td>{{ item[1] }}</td>
+									<td>{{ item[2] }}</td>
+									<td>1</td>
+									<td>{{ item[2] }}</td>									
+								</tr>
+							{% endfor %}
+								<th colspan="2" style="text-align: center;">Total:</th>
+								<th colspan="2" style="text-align: center;">{{pFee.Laboratory|round(2)}}</th>
+						</tbody>
+					</table>
+				</div>
+				{%endif%}
+				<br>
+				<div class="col-11">
+					<p style="text-align: right; font-weight: bold;">
+			            <span>Grand Total: </span>
+			            <span>{{pFee.Fees|round(2)}}</span>
+			        </p>
+				</div>
+
+			</div>
+			<div class="col" style="text-align: center;">
+
+				<h3>Vitals</h3>
+				<div class="row">
+					<div class="col">
+						<h6>BP: {{ notes[2] }}</h6>
+						<br>
+						<h6>Sat: {{ notes[3] }}</h6>
+						<br>
+						<h6>Temp: {{ notes[6] }}</h6>
+					</div>
+					<div class="col">
+						<h6>W: {{ notes[4] }}</h6>
+						<br>
+						<h6>H: {{ notes[5] }}</h6>
+					</div>
+				</div>
+
+				<br>
+
+				<h3>Prescription</h3>
+				<textarea name="pres" id="pres" cols="50" rows="6" disabled>{{ notes[0] }}</textarea>
+
+				<br>
+
+				<h3>Notes</h3>
+				<textarea name="pres" id="pres" cols="50" rows="6" disabled>{{ notes[1] }}</textarea>
+				
+				<br>
+			</div>
+		</div>
+<br><br><br>
+	</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

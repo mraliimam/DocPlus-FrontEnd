@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{name.upper()}} page
+{% endblock %}
+
+{% block content %}
+<div class="container">
+{% if name == 'admin' %}
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-body card-1">                               
+                <form action="" method="post">
+                    <input type="submit" value="Export Database" class="btn" style="background-color: transparent;">
+                </form>               
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card">
+            <div class="card-body card-1">                               
+                <a href="{{ url_for('free_patients') }}">
+                    <h5>Free Patients</h5>
+                </a>                               
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+{%else%}
+
+<div class="row" style="margin-right:0%;">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body card-1">
+               
+                <a href="{{ url_for('patient_page', name = name) }}">
+                    <h5>Check Patient</h5>
+                    
+                </a>
+               
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+    
+        <div class="card">
+            <div class="card-body card-1">
+                
+                <a href="{{ url_for('swmc_page', name = loc, path = name) }}">
+
+                    <h5>View Data</h5>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    
+
+
+</div>
+
+<br>
+{% if name == 'pharmacy' %}
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body card-1">
+
+                    <a href="{{ url_for('med_page') }}">
+
+                        <h5>Add Medicine</h5>
+                    </a>
+
+                </div>
+            </div>
+        </div>        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body card-1">
+
+                    <!-- <a href="{{ url_for('med_page') }}">
+
+                        <h5>Add Medicine</h5>
+                    </a> -->
+                    <!-- <button id = "myButton" class="btn btn-light" onclick="showInput()">Upload Medicne List</button> -->
+                    <a href="#" onclick="showInput()" id = 'myButton'>
+                        <h5>Upload Medicine</h5>
+                    </a>
+                    <form action="" method="post" enctype="multipart/form-data">                        
+                        <input type="file" name="file" id="myInput" class="form-control-sm form-control-file" onchange="form.submit()" style="display: none;">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{%endif%}
+
+{% if name == 'reception' %}
+<div class="col" style="text-align: center;">
+    <div class="card">
+        <div class="card-body card-1">
+            
+            <a href="{{ url_for('form_page',name = name)}}">
+
+                <h5>Add Patient</h5>
+            </a>
+            
+        </div>
+    </div>
+</div>
+{%endif%}
+
+{% if name == 'laboratory' or name == 'radiology' %}
+<div class="col" style="text-align: center;">
+    <div class="card">
+        <div class="card-body card-1">
+            
+            <a href="#">
+
+                <h5>Add Labs</h5>
+            </a>
+            
+        </div>
+    </div>
+</div>
+{%endif%}
+
+{% endif %}
+</div>
+
+<script>
+    function showInput() {
+    // Get references to the input and button elements
+    var input = document.getElementById("myInput");
+    var button = document.getElementById("myButton");
+
+    // Show the input and hide the button
+    input.style.display = "";
+    button.style.display = "none";
+}
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{%block title%}
+  Free Patients
+{% endblock %}
+
+{% block content %}
+
+<br>
+<br>
+<div class="container ">
+<div class = "tab-1">
+
+  <div class="row" style="padding: 1% 0.1%;">
+  <h2 class = "col-6">Free Patients</h2>
+  <input class="form-control col-6" id="myInput" type="text" placeholder="Search..">
+</div>
+</div>
+<div class="container">
+<div class="table-responsive table" style="height: 40rem;">
+  <table class = "table mb-0 table-centered table-nowrap" style="text-align: center;">
+    <thead>
+        <tr style="position: sticky; top: 0; background-color: #bee5eb;">
+          {% for i in cols %}
+            <th scope="col">{{i}}</i></th>                        
+            {%endfor%}                         
+        </tr>    
+    </thead>
+    <tbody id = "tables">
+        {%for item in items%}
+            <tr>
+                {% for att in cols %}
+                      <td>{{ item[att] }}</td>                            
+                {% endfor %}                
+            </tr>
+        {%endfor%}                                    
+    </tbody>
+
+  </table>
+</div>
+</div>
+ </div>
+{% endblock %}

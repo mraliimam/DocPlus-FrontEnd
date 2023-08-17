@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Home Page
+{% endblock %}
+
+{% block content %}
+
+<div class=" p-md-1 text-center glass" style="color:white; background-color:#dfe9eb!important; margin-top: 0%;">
+  <div class="col-md-6  mx-auto my-5" style="width:529px; height=:138px;">
+      <h1 class="display-6 font-weight-bold text-dark" style="font-size:46px!important;">Empowering patients, improving lives</h1>
+
+      <h6 class="display-8 font-weight-light text-dark pl-1 pr-1" style="font-size:20px!important;">Transforming healthcare, one click at a time – your well-being is our mission.</h6>
+
+      <a class="btn started" style="text-decoration: none!important;" href="{{ url_for('reception_page', category = 'reception') }}">Get Started</a>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,207 @@
+
+{% extends 'base.html' %}
+{%block title%}
+  Patient page
+{% endblock %}
+
+{% block content %}
+
+<h2 style="text-align: center;  ">{{name.upper()}}</h2>
+
+<br>
+<div>
+<div class = "tab-1 container">
+  <div class="row" style="padding: 1% 0.1%;">
+    {% if name.upper() == 'RADIOLOGY' or name.upper() == 'LABORATORY'%}
+    <h2 class = "col-md-6">Pending Labs</h2>
+    {% else %}
+    <h2 class = "col-md-6">Pending Patients</h2>
+    {% endif %}
+  <input class="form-control col-md-6" id="myInput" type="text" placeholder="Search..">
+</div>
+</div>
+
+    <div class="container">
+<div class="table-responsive">
+  <table class = "table mb-0 table-centered table-nowrap" style="text-align: center; ">
+    <thead>
+        <tr>
+          
+          {% for i in cols %}
+
+            {% if i != 'id' %}
+            <th scope="col">{{i}}</th>
+            {% endif %}
+            
+            {%endfor%} 
+            
+            <th scope = "col" colspan="15">Actions</th>
+            
+        </tr>    
+    </thead>
+    <tbody id = "tables">
+
+        {% for i in range(info|length) %}
+                {% set item = info[i] %}
+                {% set item2 = info2[i] %}
+
+                {% if item2 != [] %}
+                  <tr data-toggle="collapse" data-target="#demo{{ item.id }}" class="accordion-toggle">
+                {% else %}
+                    <tr>
+                {% endif %}
+          <!-- <td class = "expand-button"></td> -->
+                {% for att in cols %}
+                
+                      {% if att == 'Prescription' %}
+                        <td><textarea name="{{att}}" id="{{att}}" cols="15" rows="2" readonly style="background: transparent; border: 0cm;">{{ item[att] }}</textarea></td>
+                      
+                
+                        {% elif att != 'id' %}
+                          <td >{{ item[att] }}</td>
+                        {% endif %}
+               
+                {% endfor %}
+                <td>                  
+                  <form action="" method="post">
+                    <input class = 'patient' name = 'patient' type = 'hidden' value = "{{item}}">
+                    {% if name.upper() == 'DOCTOR' %}
+                      <button name = 'action' value = 'VIEWFORM' class="btn  btn-info" type="submit">View Form</button>
+                    {% elif name.upper() == 'RECEPTION' %}
+                    <button name = 'action' value = 'Preview' class="btn btn-info" type="submit" target="_blank">Preview</button>
+                      <br>
+
+                    <button name = 'action' value = 'Checkout' class="btn  btn-info" type="submit" target="_blank">Checkout</button>
+                      <br>
+
+                    <button name = 'action' value = 'VIEW' class = "btn  btn-info" type = "submit">View Form</button>
+                    {% else %}
+                      <button name = 'action' value = 'ADD' class="btn  btn-info" type="submit">Add Data</button>
+                    {% endif %}
+                  </form>
+                  
+                
+                </td>
+            </tr>
+            <tr>
+              <td colspan = "10" class="hiddenRow">
+                <div class="accordian-body collapse" id="demo{{ item.id }}">
+                <table class="table table-bordered table-hover table-info active" >
+                        <thead>
+                          <tr class="info">
+                            {% for ip in cols2 %}
+                              <th scope="col">{{ip}}</i></th>
+                            {% endfor %}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for its in item2 %}
+                          <tr>
+                            {% for atts in cols2 %}
+                                <td>{{ its[atts] }}</td>
+                            {% endfor %}
+                          </tr>
+
+                          {% endfor %}
+                        </tbody>
+                 </table>
+            </tr>
+        {%endfor%}                            
+    </tbody>
+
+  </table>
+</div>
+
+    </div>
+
+    <br>
+    <br>
+
+{% if(name != 'pharmacy' and name != 'reception') %}
+<div class = "tab-1 container">
+  <div class="row" style="padding: 1% 0.1%;">
+    {% if name.upper() == 'RADIOLOGY' or name.upper() == 'LABORATORY'%}
+    <h2 class = "col-md-6">Pending Reports</h2>
+    {% else %}
+    <h2 class = "col-md-6">Saved Patients</h2>
+    {%endif%}
+  <input class="form-control col-md-6" id="myInput1" type="text" placeholder="Search..">
+</div>
+</div>
+<div class="table-responsive container">
+  <table class = "table table-bordered table-hover table-info" style="text-align: center;">
+    <thead>
+        <tr>
+          
+          {% for i in coltable %}
+
+            {% if i != 'id' %}
+            <th scope="col">{{i}}</i></th>
+            {% endif %}
+            
+            {%endfor%} 
+            
+            <th scope = "col">Actions</th> 
+            
+        </tr>    
+    </thead>
+    <tbody id = "tables1">
+        {% for i in range(table2|length) %}
+                {% set tem = table2[i] %}
+                {% set tem2 = info3[i] %}
+                {% if tem2 != [] %}
+                  <tr data-toggle="collapse" data-target="#demo{{ tem.id }}" class="accordion-toggle">
+                {% else %}
+                    <tr>
+                {% endif %}
+          <!-- <td class = "expand-button"></td> -->
+                {% for att in coltable %}
+
+                {% if att == 'Prescription' %}
+                      <td><textarea name="{{att}}" id="{{att}}" cols="10" rows="3" readonly style="background: transparent; border: 0cm;">{{ tem[att] }}</textarea></td>
+                    {% elif att != 'id' %}
+                    <td>{{ tem[att] }}</td>
+                  {% endif %}
+               
+                {% endfor %}
+                <td>
+                  
+                  <form action="" method="post">
+                    <input class = 'patient' name = 'patient' type = 'hidden' value = "{{ tem }}">
+                      <button class="btn btn-outline btn-success" type="submit">View Data</button>
+                  </form>
+                  
+                
+                </td>
+            </tr>
+            <tr>
+              <td colspan = "12" class="hiddenRow">
+                <div class="accordian-body collapse" id="demo{{ tem.id }}"> 
+                <table class="table table-bordered table-hover table-info active" style="text-align: center;">
+                        <thead>
+                          <tr class="info">
+                            {% for ip in coltable2 %}
+                              <th scope="col">{{ip}}</i></th>
+                            {% endfor %}
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for its in tem2 %}
+                          <tr>
+                            {% for atts in coltable2 %}
+                                <td>{{ its[atts] }}</td>
+                            {% endfor %}
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                 </table>
+            </tr>
+        {%endfor%}                            
+    </tbody>
+
+  </table>
+</div>
+{% endif %}
+</div>
+  
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{type.upper()}}
+{% endblock %}
+
+{% block content %}
+<body>
+  <div class = 'container'>
+      <form method = 'post' class = 'form-register' style = 'color: whitesmoke'>
+          
+        <h3>Add {{type.upper()}}</h3>
+          {{ form.hidden_tag() }}
+        
+          <br>
+        
+          <div class = row>
+            <div class = 'col-md-4'>
+          {{ form.id.label() }}
+          {{ form.id(class = 'form-control', placeholder = 'Batch ID' )}}
+          
+        </div>
+        <div class = 'col-md-4'>
+          {{ form.name.label() }}
+          {{ form.name(class = 'form-control selectpicker', placeholder = 'Lab Name' ) }}
+          </div>
+
+          <div class = 'col-md-4'>
+
+          {{ form.entry.label() }}
+          {{ form.entry(class = 'form-control', placeholder = 'No. of Tests' ) }}
+          </div>
+        </div>
+        
+        <br>
+        
+        <div class = 'row'>
+          
+          <div class="col-md-4">
+            {{ form.date.label() }}
+            {{ form.date(class = 'form-control', placeholder = 'Date Added' ) }}
+            </div>
+
+          <div class="col-md-4">
+            {{ form.expiry.label() }}
+            {{ form.expiry(class = 'form-control', placeholder = 'Expiry Date' ) }}
+            </div>
+
+          </div>  
+          <br>
+          <div class = "row">
+          <div class="col-md-4">
+          {{ form.purchase.label() }}
+          {{ form.purchase(class = 'form-control', placeholder = 'Purchase Price' ) }}
+          </div>
+          <div class="col-md-4">
+          {{ form.sales.label() }}
+          {{ form.sales(class = 'form-control', placeholder = 'Sales Price') }}
+          </div>
+
+        
+        </div>        
+        <br>
+    
+          <button type="button" class="btn1 btn btn-lg btn-success" data-toggle="modal" data-target="#exampleModal">
+            Submit
+          </button>
+
+          <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="color: Black;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Adding Labs..</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Do you want to save changes?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        {{ form.submit(class = 'btn btn-primary') }}
+      </div>
+    </div>
+  </div>
+</div>
+          
+      </form>
+  </div>
+</body>
+
+
+{% endblock %}
+

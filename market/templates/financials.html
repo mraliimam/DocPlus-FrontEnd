@@ -1,0 +1,59 @@
+
+{% extends 'base.html' %}
+
+{%block title%}
+  FINANCIALS Page
+{% endblock %}
+
+{% block content %}
+
+
+<h2 style="text-align: center; color: black; margin-top : 20px;">FINANCIALS</h2>
+
+<br>
+<div class="container">
+<div class = "tab-1">
+  <div class="row" style="padding: 1% 2%;">
+  <h2 class = "col-md-6">Generate Reports</h2>
+</div>
+</div>
+
+<div class="table-responsive">
+  <table class = "table table-bordered table-hover table-info" style="text-align: center;">
+    <thead>
+        <tr>  
+            <th scope = "col">NAME</th> 
+            <th scope = "col">FROM</th> 
+            <th scope = "col">TO</th> 
+            <th scope = "col">ACTION</th> 
+        </tr>    
+    </thead>
+    <tbody id = "tables">
+
+        {% for i in arr %}
+
+        <tr>
+            <form action="" method="post">
+                <input type="hidden" name="reportName" value="{{ i }}">
+                <td>{{i}}</td>
+                <td>
+                    <input class = 'form-control col-md-8' type="date" name="from" id="from" style="display: inline-block;" required>
+                </td>
+                <td>
+                    <input class = 'form-control col-md-8' type="date" name="to" id="to" style="display: inline-block;" required>
+                </td>
+                <td>
+                    <button class = "btn btn-md btn-success" >VIEW REPORT</button>
+                </td>
+            </form>
+        </tr>
+
+        {%endfor%}
+
+    </tbody>
+
+  </table>
+</div>
+</div>
+  
+{% endblock %}

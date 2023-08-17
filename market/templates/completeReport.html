@@ -1,0 +1,202 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>SWMC Report</title>
+    </head>
+    <body>
+
+<div style="display: flex; justify-content: center; border: 5px; border-color: white;">
+<table border="1" width="800px">
+    {% if shift %}
+    <tr style="background-color:#d8e4bc;">
+        <td colspan="17" style = "height: 40px; text-align: center;"><strong>Financial Summary From: <u>{{ fromDate }}</u> , To: <u>{{ toDate }}</u></strong></td>   
+    </tr>
+    <tr>
+        <td colspan="8" style = "text-align: center; width: 300; background-color:#d8e4bc;"><strong>Paid Paitents</strong></td>
+        <td rowspan="4" style="background-color: #dce6f0;"></td>
+        <td colspan="8" style = "text-align: center; width: 300; background-color:#d8e4bc;"><strong>Free Paitents</strong></td>
+    </tr>
+    <tr  style="background-color:#f1dcdb;">
+        <td colspan="5">Total Lab Fees</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr1[3] }}</strong></td>
+        
+    
+        <td colspan="5">Total Lab Fees</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr1[0] }}</strong></td>
+        
+    </tr>
+    <tr  style="background-color:#f1dcdb;">
+        <td colspan="5">Total Radiology Fees</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr1[4] }}</strong></td>
+        
+      
+        <td colspan="5">Total Radiology Fees</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr1[1] }}</strong></td>
+        
+    </tr>
+    <tr style="background-color:#f1dcdb;">
+        <td colspan="5">Total Medicine Stocked Out</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr1[5] }}</strong></td>
+        
+        <td colspan="5">Total Medicine Stocked Out</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr1[2] }}</strong></td>
+        
+    </tr>
+    <tr style="background-color:#e3e5dd;">
+        <td colspan="14"><strong>Cash Received from OPD</strong></td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr2[0] }}</strong></td>
+    </tr>
+    <tr style="background-color:#e3e5dd;">
+        <td colspan="14"><strong>Cash Received from Paid Patients</strong></td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr1[7] }}</strong></td>
+    </tr>
+    <tr style="background-color:#e3e5dd;">
+        <td colspan="14"><strong>Cash Received from Free Patients Exceeding Monthly Budget</strong></td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr1[6] }}</strong></td>
+    </tr>
+    <tr style="background-color:gray;">
+        <td colspan="14"><strong>Total Cash Received</strong></td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr2[1] }}</strong></td>
+       
+    </tr>
+    <tr style="background-color:#e3e5dd;">
+        <td colspan="14"><strong>Medicines Purchased</strong></td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr2[2] }}</strong></td>
+    </tr>
+    <tr style="background-color:#e3e5dd;">
+        <td colspan="14"><strong>Lab Expenses</strong></td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr2[3] }}</strong></td>
+    </tr>
+    <tr style="background-color:#e3e5dd;">
+        <td colspan="14"><strong>General Expenses</strong></td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr2[4] }}</strong></td>
+    </tr>
+    <tr style="background-color:#e3e5dd;">
+        <td colspan="14"><strong>Emergency Patients Expense</strong></td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr2[5] }}</strong></td>
+    </tr>
+    <tr style="background-color:#e3e5dd;">
+        <td colspan="14"><strong>Additional Pharmacy Stock</strong></td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr2[10] }}</strong></td>
+    </tr>    
+    <tr style="background-color:gray;">
+        <td colspan="14"><strong>Total Expenses</strong></td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr2[6] }}</strong></td>
+    </tr>
+    <tr style="background-color:rgb(196, 22, 22); color: white;">
+        <td colspan="14"><strong>CASH IN HANDS</strong></td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr2[7] }}</strong></td>
+    </tr>
+    <tr style="background-color:#e3e5dd;">
+        <td colspan="14"><strong>Salaries and Misc Expense</strong></td>
+       
+        <td colspan="3" style="text-align: center;"><strong>PKR {{ arr2[8] }}</strong></td>
+    </tr>
+    <tr style="background-color:rgb(196, 22, 22); color: white;">
+        <td colspan="14"><strong>FINAL MONTHLY BALANCE</strong></td>
+       
+        <td colspan="3"style="text-align: center;"><strong>PKR {{ arr2[9] }}</strong></td>
+    </tr>
+    {% endif %}
+    <tr style="background-color:#f9bf8f;">
+        <td colspan="17" style = "height: 40px; text-align: center;"><strong>Patients Summary From: <u>{{ fromDate }}</u> , To: <u>{{ toDate }}</u></strong></td>   
+    </tr>
+    <tr style="background-color:#f9bf8f;">
+        <td colspan="8" style = "width: 300; text-align: center;"><strong>Paitents Record</strong></td>
+        <td rowspan="8" style="background-color:#dce6f0;" ></td>
+        <td colspan="8" style="text-align: center; width: 300;"><strong>Providers Record (Treated by)</strong></td>
+    </tr>
+    <tr style="background-color:#fce9da;">
+        <td colspan="5">Total No. of Patients</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>{{ arr3[0] }}</strong></td>
+        
+    
+        <td colspan="5">{{ arr4[0] }}</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>{{ arr4[1] }}</strong></td>
+        
+    </tr>
+    <tr style="background-color:#fce9da;">
+        <td colspan="5">Total No. of OPDs</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>{{ arr3[1] }}</strong></td>
+        
+      
+        <td colspan="5">{{ arr4[2] }}</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>{{ arr4[3] }}</strong></td>
+        
+    </tr>
+    <tr style="background-color:#fce9da;">
+        <td colspan="5">Total No. of Labs</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>{{ arr3[2] }}</strong></td>
+        
+        <td colspan="5">{{ arr4[4] }}</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>{{ arr4[5] }}</strong></td>
+        
+    </tr>
+    <tr style="background-color:#fce9da;">
+        <td colspan="5">Total No. of Radiology</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>{{ arr3[3] }}</strong></td>
+        
+        <td colspan="5">{{ arr4[6] }}</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>{{ arr4[7] }}</strong></td>
+        
+    </tr>
+    <tr style="background-color:#fce9da;">
+        <td colspan="5">Total No. of Medicines Stocked Out</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>{{ arr3[4] }}</strong></td>
+        
+        <td colspan="5">{{ arr4[8] }}</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>{{ arr4[9] }}</strong></td>
+        
+    </tr>
+    <tr style="background-color:#fce9da;">
+        <td colspan="5">Total No. of Emergencies</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>{{ arr3[5] }}</strong></td>
+        
+        <td colspan="5">{{ arr4[10] }}</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>{{ arr4[11] }}</strong></td>
+        
+    </tr>
+    <tr style="background-color:#fce9da;">
+        <td colspan="5">Total No. of Vitals</td>
+       
+        <td colspan="3" style="text-align: center;"><strong>{{ arr3[6] }}</strong></td>
+        
+        <td colspan="5">{{ arr4[12] }}</td>
+       
+        <td colspan="3" style="text-align: center;">{{ arr4[13] }}</td>
+        
+    </tr>
+</table>
+</div>
+</body>
+</html>

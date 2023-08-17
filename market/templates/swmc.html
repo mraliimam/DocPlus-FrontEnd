@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{%block title%}
+  SWMC page
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<br>
+<div class="container">
+<div>
+<div class = "tab-1">
+  <div class="row" style="padding: 1% 2%;">
+  <h2 class = "col-4">{{name.upper()}}</h2>
+   <a href="{{ url_for('form_page',name = name)}}" class="btn btn-info col-2"><i class="fa-solid fa-plus fa-2xs"></i>  Create New</a>
+  <input class="form-control col-5 ml-3" id="myInput" type="text" placeholder="Search.." >
+
+
+</div>
+</div>
+
+<div class="table-responsive table" style="height: 40rem;">
+  <table class = "table mb-0 table-centered table-nowrap" style="text-align: center;">
+    <thead>
+        <tr style="position: sticky; top: 0; background-color: #bee5eb;">
+          {% for i in cols %}
+
+            {% if i != 'Data' %}
+            <th scope="col">{{i}}</i></th>
+            {% endif %}
+            
+            {%endfor%}             
+            {% if name not in ('labs', 'medicine') %}            
+            <th scope = "col">Actions</th>             
+            {% elif name == 'medicine' %}
+            <th scope = "col">Actions</th>             
+            {% endif %}
+        </tr>    
+    </thead>
+    <tbody id = "tables" style="font-size: 12px!important;">
+        {%for item in items%}
+            <tr>
+                {% for att in cols %}
+                {% if att == 'Prescription' or att == 'Notes' %}
+                <td><textarea name="{{att}}" id="{{att}}" cols="20" rows="3" readonly style="background: transparent; border: 0cm;">{{ item[att] }}</textarea></td>
+                {% else %}
+                    {% if att != 'Data' %}
+                      <td>{{ item[att] }}</td>
+                  {% endif %}
+                  {%endif%}
+                
+                {% endfor %}
+                <td>
+                  {% if name == 'patient_list' %}                  
+                  <form action="" method="post">
+                    <input id = 'patient' name = 'patient' type = 'hidden' value = "{{ item }}">
+                    <button name = "action" value = "Register" class="btn btn-success" type="submit">Register</button>
+                    <button name = "action" value = "Edit" class="btn btn-info" type = "submit">Edit</button>
+                  </form>
+                  {% elif name == 'medicine'%}
+                  <form action="" method="post">
+                    <input id = 'patient' name = 'patient' type = 'hidden' value = "{{ item }}">
+                    <button name = "action" value = "Delete" class="btn btn-outline btn-outline-danger" type="submit">Delete</button>
+                  </form>
+                  {% elif name == 'patient_data' %}
+                  <form action="" method="post">
+                    <input id = 'patient' name = 'patient' type = 'hidden' value = "{{ item }}">
+                    <button name = 'action' value = 'Preview' class="btn btn-outline btn-warning" type="submit" target="_blank">Preview</button>
+                  </form>
+                  {% endif %}
+                
+                </td>
+            </tr>
+        {%endfor%}                            
+        {% if price != "NULL" %}
+            <tr>
+              <th colspan="{{ cols | length /2 }}">Grand Stock Price</th>
+              <th colspan="{{ cols | length /2 }}">{{ price }}</th>
+            </tr>
+        {%endif%}
+    </tbody>
+
+  </table>
+</div>
+</div>
+ </div>
+  
+{% endblock %}

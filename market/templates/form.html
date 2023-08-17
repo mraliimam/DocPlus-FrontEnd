@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Form Page
+{% endblock %}
+
+{% block content %}
+<body>
+  <div class = 'container p-5'>
+      <form method = 'post' class = 'form-register p-5' style = 'color: black; background:white;'>
+          <h3>              
+              Patient Data
+          </h3>
+          {{ form.hidden_tag() }}
+          <br>
+          <div class = row>
+            <div class = 'col-md-4'>
+          {{ form.mrn.label() }}*
+          {{ form.mrn(class = 'form-control', placeholder = 'MRN', readonly = true)}}
+          <!-- <input class="form-control" type="text" placeholder="{{ form.mrn.data }}" readonly> -->
+        </div>
+        <div class = 'col-md-4'>
+          {{ form.name.label() }}*
+          {{ form.name(class = 'form-control', placeholder = 'Full Name') }}
+          </div>
+
+          <div class = 'col-md-4'>
+            {{ form.father.label() }}*
+            {{ form.father(class = 'form-control', placeholder = 'Father Name / Husband Name') }}
+            </div>
+
+          
+        </div>
+        
+        <br>
+        
+        <div class = 'row'>
+          <div class = 'col-2'>
+            {{ form.gender.label }}*
+            {{ form.gender(class = 'form-control', placeholder = 'Gender') }}
+          </div>  
+          <div class = 'col-md-3'>
+            {{ form.dob.label() }}*
+            {{ form.dob(class = 'form-control', placeholder = 'Date of Birth') }}
+            </div>
+            <div class="col-md-7">
+              {{ form.address.label() }}
+              {{ form.address(class = 'form-control', placeholder = 'Address') }}
+              </div>
+            </div>
+            <br>
+            <div class="row">
+          <div class="col-md-6">
+          {{ form.cnic.label() }}
+          {{ form.cnic(class = 'form-control', placeholder = 'CNIC') }}
+          </div>
+          <div class="col-md-6">
+          {{ form.mobile.label() }}
+          {{ form.mobile(class = 'form-control', placeholder = 'Phone No') }}
+          </div>
+
+        
+        </div>
+        <br>
+        {% if form.temp.data != 1000 %}
+        <div class="row">
+          <div class = 'col-md-3'>
+              {{ form.tos.label() }}*
+              {{ form.tos(class = 'form-control', placeholder = 'Type of Service') }}
+          </div>
+
+          <!-- <select class="selectpicker">
+            <option>{{ form.tos }}</option>
+          </select>
+          </div> -->
+          <!-- <div class = 'col-1'></div> -->
+          
+          {% if name != 'doctor' %}
+          <div class="col-sm-3 c-box" >
+            {{form.pharm.label }}
+            {{ form.pharm() }}
+          </div>
+          <div class="col-sm-3 c-box">
+            {{form.lab.label }}
+            {{ form.lab() }}
+          </div>
+          <div class="col-sm-3 c-box">
+            {{form.radio.label }}
+            {{ form.radio() }}
+          </div>
+          {%endif%}
+          
+        </div>
+        
+        <br>
+
+        <h3>Vitals</h3>
+        <br>
+        <div class = 'row'>
+          
+          <div class = 'col-md-4'>
+            {{ form.bp.label }}
+            {{ form.bp(class = 'form-control', placeholder = 'Blood Pressure') }}
+          </div>
+
+          <div class = 'col-md-4'>
+            {{ form.temp.label }}
+            {{ form.temp(class = 'form-control', placeholder = 'Temperature') }}
+          </div>
+
+          <div class = 'col-md-4'>
+            {{ form.sat.label }}
+            {{ form.sat(class = 'form-control', placeholder = 'Saturation') }}
+          </div>
+        </div>
+        <br>
+        <div class = 'row'>
+          <div class = 'col-md-3'>
+            {{ form.wt.label }}
+            {{ form.wt(class = 'form-control', placeholder = 'Weight') }}
+          </div>
+
+          <div class = 'col-md-3'>
+            {{ form.ht.label }}
+            {{ form.ht(class = 'form-control', placeholder = 'Height') }}
+          </div>
+
+          <div class = 'col-md-4'  >
+              {{ form.labSel.label }}
+              {{ form.labSel(class = 'selectpicker', placeholder = 'Lab Select') }}
+
+
+          </div>
+
+          {% if name != None %}
+          <div class = "col-md-2" style="margin-top: 32px;">
+            <a href="{{ url_for('reports_page', mrn = form.mrn.data, id = id) }}" class = "btn btn-info" target="_blank">Patient Files</a>
+            </div>
+            {%endif%}
+
+        </div>
+
+          <br>
+          <div class = 'row'>
+            <div class = 'col-md-4'>
+              {{ form.doc.label() }}
+              {{ form.doc(class = 'form-control', placeholder = 'Doctor') }}
+             
+            </div>
+
+            <div class = 'col-md-4'>
+              {{ form.pres.label() }}
+              {{ form.pres(class = 'form-control', placeholder = 'Prescription') }}
+            </div>
+
+            <div class = 'col-md-4'>
+              {{ form.notes.label() }}
+              {{ form.notes(class = 'form-control', placeholder = 'Notes') }}
+            </div>
+
+          </div>
+
+          {% endif %}
+
+          <br>
+
+          
+
+          <br>
+
+          {% if name == 'doctor' or name == 'reception'%}
+          <button name = "action" value = "Save" type="submit" class="btn btn btn-lg btn-info">
+            Save
+          </button>
+          {% else %}
+          <button name = "action" value="submit" type="button" class="btn btn btn-lg btn-success" data-toggle="modal" data-target="#exampleModal">
+            Submit
+          </button>
+          {%endif%}
+          <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="color: Black;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Adding Patient..</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Do you want to save changes?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        {{ form.submit(class = 'btn btn-primary') }}
+      </div>
+    </div>
+  </div>
+</div>  
+      </form>
+  </div>
+</body>
+
+
+{% endblock %}

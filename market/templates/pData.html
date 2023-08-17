@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Form Page
+{% endblock %}
+
+{% block content %}
+<body>
+  <div class = 'container'>
+      <form method = 'post' class = 'form-register' style = 'color: whitesmoke'>
+          <h3>              
+              Patient Data
+          </h3>
+          {{ form.hidden_tag() }}
+          <br>
+          <div class = row>
+            <div class = 'col-md-4'>
+          {{ form.mrn.label() }}*
+          {{ form.mrn(class = 'form-control', placeholder = 'MRN', readonly = true)}}
+          <!-- <input class="form-control" type="text" placeholder="{{ form.mrn.data }}" readonly> -->
+        </div>
+        <div class = 'col-md-4'>
+          {{ form.name.label() }}*
+          {{ form.name(class = 'form-control', placeholder = 'Full Name') }}
+          </div>
+
+          <div class = 'col-md-4'>
+            {{ form.father.label() }}*
+            {{ form.father(class = 'form-control', placeholder = 'Father Name') }}
+            </div>
+        </div>
+        
+        <br>
+        
+        <div class = 'row'>
+          <div class = 'col-2'>
+            {{ form.gender.label }}*
+            {{ form.gender(class = 'form-control', placeholder = 'Gender') }}
+          </div>  
+          <div class = 'col-md-3'>
+            {{ form.dob.label() }}*
+            {{ form.dob(class = 'form-control', placeholder = 'Date of Birth') }}
+            </div>
+            <div class="col-md-5">
+              {{ form.address.label() }}
+              {{ form.address(class = 'form-control', placeholder = 'Address') }}
+              </div>
+            </div>
+            <br>
+            <div class="row">
+          <div class="col-md-4">
+          {{ form.cnic.label() }}
+          {{ form.cnic(class = 'form-control', placeholder = 'CNIC') }}
+          </div>
+          <div class="col-md-4">
+          {{ form.mobile.label() }}
+          {{ form.mobile(class = 'form-control', placeholder = 'Phone No') }}
+          </div>
+        </div>
+        <br>
+          <br>
+          <br>
+          {{ form.submit(class = 'btn btn-success btn-lg') }}
+      </form>
+  </div>
+</body>
+
+
+{% endblock %}
