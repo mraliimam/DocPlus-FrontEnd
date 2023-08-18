@@ -21,12 +21,11 @@ def med_page():
 
 @app.route('/form', methods = ['GET', 'POST'])
 def form_page():
-    pass
+    return render_template('form.html')
 
 
-
-@app.route('/<category>', methods = ['GET', 'POST'])
-def reception_page(category):
+@app.route('/reception', methods = ['GET', 'POST'])
+def reception_page():
     return render_template('reception.html')
 
 
@@ -40,9 +39,9 @@ def financials_page():
 def finReport_page():
     pass
 
-@app.route('/<name>/patients', methods = ['GET', 'POST'])
-def patient_page(name):
-    pass
+@app.route('/patient', methods = ['GET', 'POST'])
+def patient_page():
+    return render_template('patient.html')
 
 
 @app.route('/reception/checkout', methods = ['GET','POST'])

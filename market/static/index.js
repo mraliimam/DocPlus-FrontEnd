@@ -58,4 +58,4 @@ $(function () {
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
-
+$('#example').tooltip(options)

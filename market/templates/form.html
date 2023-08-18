@@ -5,28 +5,32 @@
 {% endblock %}
 
 {% block content %}
-<body>
+
   <div class = 'container p-5'>
-      <form method = 'post' class = 'form-register p-5' style = 'color: black; background:white;'>
-          <h3>              
+      <form method = 'post' class = 'form'>
+         <div class="form1">
+          <h3>
               Patient Data
           </h3>
-          {{ form.hidden_tag() }}
+
           <br>
           <div class = row>
             <div class = 'col-md-4'>
-          {{ form.mrn.label() }}*
-          {{ form.mrn(class = 'form-control', placeholder = 'MRN', readonly = true)}}
-          <!-- <input class="form-control" type="text" placeholder="{{ form.mrn.data }}" readonly> -->
+              <label for="mrn">MRN</label>
+              <input type="text" class = 'form-control' id="mrn" placeholder = 'MRN'>
+
+
         </div>
         <div class = 'col-md-4'>
-          {{ form.name.label() }}*
-          {{ form.name(class = 'form-control', placeholder = 'Full Name') }}
+          <label for="FullName">Full Name</label>
+          <input type="text" class = 'form-control' id="FullName" placeholder = 'Full Name'>
+
           </div>
 
           <div class = 'col-md-4'>
-            {{ form.father.label() }}*
-            {{ form.father(class = 'form-control', placeholder = 'Father Name / Husband Name') }}
+            <label for="father">Father Name / Husband Name</label>
+          <input type="text" class = 'form-control' id="father" placeholder = 'Father Name / Husband Name'>
+
             </div>
 
           
@@ -36,131 +40,141 @@
         
         <div class = 'row'>
           <div class = 'col-2'>
-            {{ form.gender.label }}*
-            {{ form.gender(class = 'form-control', placeholder = 'Gender') }}
+          <label for="gender">Gender</label>
+          <input type="text" class = 'form-control' id="gender" placeholder = 'Gender'>
+
+
           </div>  
           <div class = 'col-md-3'>
-            {{ form.dob.label() }}*
-            {{ form.dob(class = 'form-control', placeholder = 'Date of Birth') }}
+            <label for="DateofBirth">Date of Birth</label>
+          <input type="text" class = 'form-control' id="DateofBirth" placeholder = 'Date of Birth'>
+
+
             </div>
             <div class="col-md-7">
-              {{ form.address.label() }}
-              {{ form.address(class = 'form-control', placeholder = 'Address') }}
+              <label for="Address">Address</label>
+          <input type="text" class = 'form-control' id="Address" placeholder = 'Address'>
+
+
               </div>
             </div>
             <br>
             <div class="row">
           <div class="col-md-6">
-          {{ form.cnic.label() }}
-          {{ form.cnic(class = 'form-control', placeholder = 'CNIC') }}
+             <label for="CNIC">CNIC</label>
+          <input type="text" class = 'form-control' id="CNIC" placeholder = 'CNIC'>
+
           </div>
           <div class="col-md-6">
-          {{ form.mobile.label() }}
-          {{ form.mobile(class = 'form-control', placeholder = 'Phone No') }}
+             <label for="PhoneNo">Phone No</label>
+          <input type="text" class = 'form-control' id="PhoneNo" placeholder = 'Phone No'>
+
           </div>
 
         
         </div>
         <br>
-        {% if form.temp.data != 1000 %}
+
         <div class="row">
           <div class = 'col-md-3'>
-              {{ form.tos.label() }}*
-              {{ form.tos(class = 'form-control', placeholder = 'Type of Service') }}
+              <label for="Type">Type of Service</label>
+          <input type="text" class = 'form-control' id="Type" placeholder = 'Type of Service'>
           </div>
 
-          <!-- <select class="selectpicker">
-            <option>{{ form.tos }}</option>
-          </select>
-          </div> -->
-          <!-- <div class = 'col-1'></div> -->
+
           
-          {% if name != 'doctor' %}
+
           <div class="col-sm-3 c-box" >
-            {{form.pharm.label }}
-            {{ form.pharm() }}
+            <label for="pharmacy">Pharmacy</label>
+            <input type="checkbox" id="pharmacy">
           </div>
           <div class="col-sm-3 c-box">
-            {{form.lab.label }}
-            {{ form.lab() }}
+            <label for="Laboratory">Laboratory</label>
+            <input type="checkbox" id="Laboratory">
           </div>
           <div class="col-sm-3 c-box">
-            {{form.radio.label }}
-            {{ form.radio() }}
+            <label for="Radiology">Radiology</label>
+            <input type="checkbox" id ="Radiology">
           </div>
-          {%endif%}
+
           
         </div>
         
         <br>
+        <br>
+
+</div>
+
+        <div class="form1">
 
         <h3>Vitals</h3>
         <br>
-        <div class = 'row'>
-          
-          <div class = 'col-md-4'>
-            {{ form.bp.label }}
-            {{ form.bp(class = 'form-control', placeholder = 'Blood Pressure') }}
+        <div class = row>
+            <div class = 'col-md-4'>
+              <label for="Blood">Blood Pressure</label>
+              <input type="text" class = 'form-control' id="Blood" placeholder = 'Blood Pressure'>
+
+
+        </div>
+        <div class = 'col-md-4'>
+          <label for="Temperature">Temperature</label>
+          <input type="text" class = 'form-control', id="Temperature" placeholder = 'Temperature'>
+
           </div>
 
           <div class = 'col-md-4'>
-            {{ form.temp.label }}
-            {{ form.temp(class = 'form-control', placeholder = 'Temperature') }}
-          </div>
+            <label for="Saturation">Saturation</label>
+          <input type="text" class = 'form-control', id="Saturation" placeholder = 'Saturation'>
 
-          <div class = 'col-md-4'>
-            {{ form.sat.label }}
-            {{ form.sat(class = 'form-control', placeholder = 'Saturation') }}
-          </div>
+            </div>
+
+
         </div>
         <br>
+
         <div class = 'row'>
+          <div class = 'col-2'>
+          <label for="Weight">Weight</label>
+          <input type="text" class = 'form-control' id="Weight" placeholder = 'Weight'>
+
+
+          </div>
           <div class = 'col-md-3'>
-            {{ form.wt.label }}
-            {{ form.wt(class = 'form-control', placeholder = 'Weight') }}
-          </div>
-
-          <div class = 'col-md-3'>
-            {{ form.ht.label }}
-            {{ form.ht(class = 'form-control', placeholder = 'Height') }}
-          </div>
-
-          <div class = 'col-md-4'  >
-              {{ form.labSel.label }}
-              {{ form.labSel(class = 'selectpicker', placeholder = 'Lab Select') }}
+            <label for="Height">Height</label>
+          <input type="text" class = 'form-control' id="Height" placeholder = 'Height'>
 
 
-          </div>
-
-          {% if name != None %}
-          <div class = "col-md-2" style="margin-top: 32px;">
-            <a href="{{ url_for('reports_page', mrn = form.mrn.data, id = id) }}" class = "btn btn-info" target="_blank">Patient Files</a>
             </div>
-            {%endif%}
+            <div class="col-md-7">
+              <label for="SelectLabs">Select Labs</label>
+          <input type="text" class = 'form-control' id="SelectLabs" placeholder = 'Select Labs'>
+
+
+              </div>
+            </div>
+          <br>
+          <div class = row>
+            <div class = 'col-md-4'>
+              <label for="Provider">Provider</label>
+              <input type="text" class = 'form-control' id="Provider" placeholder = 'Provider'>
+
+        </div>
+        <div class = 'col-md-4'>
+          <label for="Prescription">Prescription</label>
+          <input type="text" class = 'form-control' id="Prescription" placeholder = 'Prescription'>
+
+          </div>
+
+          <div class = 'col-md-4'>
+            <label for="Notes">Notes</label>
+          <input type="text" class = 'form-control' id="Notes" placeholder = 'Notes'>
+
+            </div>
+
 
         </div>
 
-          <br>
-          <div class = 'row'>
-            <div class = 'col-md-4'>
-              {{ form.doc.label() }}
-              {{ form.doc(class = 'form-control', placeholder = 'Doctor') }}
-             
-            </div>
 
-            <div class = 'col-md-4'>
-              {{ form.pres.label() }}
-              {{ form.pres(class = 'form-control', placeholder = 'Prescription') }}
-            </div>
-
-            <div class = 'col-md-4'>
-              {{ form.notes.label() }}
-              {{ form.notes(class = 'form-control', placeholder = 'Notes') }}
-            </div>
-
-          </div>
-
-          {% endif %}
 
           <br>
 
@@ -168,39 +182,17 @@
 
           <br>
 
-          {% if name == 'doctor' or name == 'reception'%}
-          <button name = "action" value = "Save" type="submit" class="btn btn btn-lg btn-info">
-            Save
-          </button>
-          {% else %}
-          <button name = "action" value="submit" type="button" class="btn btn btn-lg btn-success" data-toggle="modal" data-target="#exampleModal">
+          <button name = "action" value="submit" type="button" class="btn btnsub" >
             Submit
           </button>
-          {%endif%}
+            <br>
+            <br>
+
+</div>
           <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content" style="color: Black;">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Adding Patient..</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        Do you want to save changes?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-        {{ form.submit(class = 'btn btn-primary') }}
-      </div>
-    </div>
-  </div>
-</div>  
       </form>
   </div>
-</body>
+
 
 
 {% endblock %}
