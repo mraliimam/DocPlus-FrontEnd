@@ -8,36 +8,96 @@
 
 <br>
 <br>
-<div class="container ">
-<div class = "tab-1">
-
-  <div class="row" style="padding: 1% 0.1%;">
-  <h2 class = "col-6">Free Patients</h2>
-  <input class="form-control col-6" id="myInput" type="text" placeholder="Search..">
-</div>
-</div>
 <div class="container">
-<div class="table-responsive table" style="height: 40rem;">
-  <table class = "table mb-0 table-centered table-nowrap" style="text-align: center;">
-    <thead>
-        <tr style="position: sticky; top: 0; background-color: #bee5eb;">
-          {% for i in cols %}
-            <th scope="col">{{i}}</i></th>                        
-            {%endfor%}                         
-        </tr>    
-    </thead>
-    <tbody id = "tables">
-        {%for item in items%}
-            <tr>
-                {% for att in cols %}
-                      <td>{{ item[att] }}</td>                            
-                {% endfor %}                
-            </tr>
-        {%endfor%}                                    
-    </tbody>
+<div class="table">
 
-  </table>
+
+    <div class="pharmacyupper">
+        <h1 style="padding-left:10px!important; padding-top:10px!important;">Free Patients</h1>
+
+    </div>
+
+    <table>
+        <br>
+        <thead>
+            <tr>
+                <th>MRN</th>
+                <th>Name</th>
+                <th>Father's Name</th>
+                <th>Date of Birth</th>
+                <th>Doctor</th>
+                <th>Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Free</td>
+                <td><img  class="record" src="./static/admin.png" alt="alt" >Mohammad Ali</td>
+                <td>xyz</td>
+                <td>23/12/2021</td>
+                <td>Dr.Ibrar</td>
+                <td><img class="actions" src="./static/preview.png" alt="" data-toggle="tooltip" data-placement="top" data-html="true" title ="Preview">
+                    <img  class="actions" src="./static/checkout.png" alt="" data-toggle="tooltip" data-placement="top" title="Checkout">
+                <img class="actions1" src="./static/view.png" alt="" data-toggle="tooltip" data-placement="top" title="View">
+                </td>
+
+            </tr>
+        <tr>
+                <td>Free</td>
+                <td><img  class="record" src="./static/admin.png" alt="alt" >Mohammad Ali</td>
+                <td>xyz</td>
+                <td>23/12/2021</td>
+                <td>Dr.Ibrar</td>
+                <td><img class="actions" src="./static/preview.png" alt="" data-toggle="tooltip" data-placement="top" data-html="true" title ="Preview">
+                    <img  class="actions" src="./static/checkout.png" alt="" data-toggle="tooltip" data-placement="top" title="Checkout">
+                <img class="actions1" src="./static/view.png" alt="" data-toggle="tooltip" data-placement="top" title="View">
+                </td>
+
+            </tr>
+        <tr>
+                <td>Free</td>
+                <td><img  class="record" src="./static/admin.png" alt="alt" >Mohammad Ali</td>
+                <td>xyz</td>
+                <td>23/12/2021</td>
+                <td>Dr.Ibrar</td>
+                <td><img class="actions" src="./static/preview.png" alt="" data-toggle="tooltip" data-placement="top" data-html="true" title ="Preview">
+                    <img  class="actions" src="./static/checkout.png" alt="" data-toggle="tooltip" data-placement="top" title="Checkout">
+                <img class="actions1" src="./static/view.png" alt="" data-toggle="tooltip" data-placement="top" title="View">
+                </td>
+
+            </tr>
+        <tr>
+                <td>Free</td>
+                <td><img  class="record" src="./static/admin.png" alt="alt" >Mohammad Ali</td>
+                <td>xyz</td>
+                <td>23/12/2021</td>
+                <td>Dr.Ibrar</td>
+                <td><img class="actions" src="./static/preview.png" alt="" data-toggle="tooltip" data-placement="top" data-html="true" title ="Preview">
+                    <img  class="actions" src="./static/checkout.png" alt="" data-toggle="tooltip" data-placement="top" title="Checkout">
+                <img class="actions1" src="./static/view.png" alt="" data-toggle="tooltip" data-placement="top" title="View">
+                </td>
+
+            </tr>
+        <tr>
+                <td>Free</td>
+                <td><img  class="record" src="./static/admin.png" alt="alt" >Mohammad Ali</td>
+                <td>xyz</td>
+                <td>23/12/2021</td>
+                <td>Dr.Ibrar</td>
+                <td><img class="actions" src="./static/preview.png" alt="" data-toggle="tooltip" data-placement="top" data-html="true" title ="Preview">
+                    <img  class="actions" src="./static/checkout.png" alt="" data-toggle="tooltip" data-placement="top" title="Checkout">
+                <img class="actions1" src="./static/view.png" alt="" data-toggle="tooltip" data-placement="top" title="View">
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
 </div>
-</div>
- </div>
+
+    </div>
 {% endblock %}

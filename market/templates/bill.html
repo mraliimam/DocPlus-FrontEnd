@@ -1,177 +1,141 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends 'base.html' %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+{% block title %}
+  INVOICE
+{% endblock %}
 
-    <title>INVOICE</title>
-  </head>
-  <body>
-    <div class="container">
-		<br><br>
-		<div class="row" style="display: flex; justify-content: center;">
-			<div class="col-2">
-				<img src="{{ url_for('static', filename='Ready.png')}}" alt="code logo">
-			</div>			
-			<div class="col-6">
-				<h2 style="color: green;">Salhad Welfare Medical Center</h2>
-				<p class="sub_title">Shop # 101M, Mohallah Madni</p>
-				<p class="sub_title">P.O. Salhad, Tehsil and District Abbottabad</p>
-			</div>
-		</div>
-		<br><br><br>
+{% block content %}
 
-		<div class="row">
-			<div class="col">
-				<p><strong>Patient Details:</strong></p>
-				<br>
-				<p><strong>Name:</strong> {{pList.Name}}</p> 
-				<span>
-				<strong>MRN no:</strong>  
-				{{pList.MRN}} 
-			    </span>
-				<p><strong>CNIC:</strong> {{pList.CNIC}}</p> <br/>
-			</div>
-			<div class="col" style="text-align: right;">
-				<p class="invoice bold">Date: <strong>{{pData.Visited}}</strong></p>
-				<br>
-				<p class="invoice bold">Invoice: <strong>#{{pData.id}}</strong></p>
-				
-				<p class="invoice bold"><strong>Father/Husband Name: </strong>{{pList.Father_Name}}</p>
-				
-				<p class="invoice bold"><strong>Date of Birth: </strong>{{pList.Date_of_Birth}}</p>
-			</div>
-		</div>
+<div class="container maincontainer" >
+<div class="box">
+<div class="pharmacyupper" >
+        <h1 style="padding-left:10px!important; padding-top:10px!important;">Patient Details</h1>
 
-		<div class="row">
-			<div class="col-6">
-				<h3 class="title" style="text-align: center;">GENERAL SERVICE</h3>
-				<div>
-					<table class="table table-sm table-striped">
-						<thead>
-							<tr>
-								<th>Type Of Service</th>
-								<th>Price</th>
-							</tr>
-						</thead>
-						<tbody>
-							<td>{{pData.Type_of_Service}}</td>
-							<td>{{pFee.Registration}}</td>
-						</tbody>
-					</table>
-				</div>
-				{% if med %}
-				<br>
-				<h3 style="text-align: center;">PHARMACY</h3> 
-				<div>
-					<table class="table table-sm table-striped">
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Expiry</th>
-								<th>Price</th>
-								<th>Quantity</th>
-								<th>Total</th>
-							</tr>
-						</thead>
-						<tbody>
-							{% for item in med %}
-								<tr>
-									<td>{{ item[0] }}</td>
-									<td>{{ item[1] }}</td>
-									<td>{{ item[2] }}</td>
-									<td>{{ item[3] }}</td>
-									<td>{{ item[4] }}</td>
-								</tr>
-							{% endfor %}
-							<tr>
-								<th colspan="2" style="text-align: center;">Total:</th>
-								<th colspan="3" style="text-align: center;">{{pFee.Medicine|round(2)}}</th>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				{%endif%}
-				<br>
-				{% if lab %}
-				<br>
-				<h3 style="text-align: center;">LABORATORY</h3>
-				<div>
-					<table class="table table-sm table-striped">
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Price</th>
-								<th>Quantity</th>
-								<th>Total</th>
-							</tr>
-						</thead>
-						<tbody>
-							{% for item in lab %}
-								<tr>
-									<td>{{ item[1] }}</td>
-									<td>{{ item[2] }}</td>
-									<td>1</td>
-									<td>{{ item[2] }}</td>									
-								</tr>
-							{% endfor %}
-								<th colspan="2" style="text-align: center;">Total:</th>
-								<th colspan="2" style="text-align: center;">{{pFee.Laboratory|round(2)}}</th>
-						</tbody>
-					</table>
-				</div>
-				{%endif%}
-				<br>
-				<div class="col-11">
-					<p style="text-align: right; font-weight: bold;">
-			            <span>Grand Total: </span>
-			            <span>{{pFee.Fees|round(2)}}</span>
-			        </p>
-				</div>
+    </div>
+<div class="details">
+        <div class="left">
+            <p><strong>Name:</strong> Mubashar</p>
+            <p><strong>MRN Number</strong>: 123456</p>
+            <p><strong>CNIC</strong>: 1234567890</p>
+        </div>
+        <div class="right" style="margin-left:450px;">
+            <p><strong>Date</strong>: April 15, 2023</p>
+            <p><strong>Invoice #</strong>: 06</p>
 
-			</div>
-			<div class="col" style="text-align: center;">
 
-				<h3>Vitals</h3>
-				<div class="row">
-					<div class="col">
-						<h6>BP: {{ notes[2] }}</h6>
-						<br>
-						<h6>Sat: {{ notes[3] }}</h6>
-						<br>
-						<h6>Temp: {{ notes[6] }}</h6>
-					</div>
-					<div class="col">
-						<h6>W: {{ notes[4] }}</h6>
-						<br>
-						<h6>H: {{ notes[5] }}</h6>
-					</div>
-				</div>
+        </div>
+    </div>
+</div>
+  <div class="box2">
+    <div class="box1">
+        <div class="pharmacyupper" style="text-align: center!important;">
+        <h1 style="padding-left:155px!important; padding-top:10px!important; ">GENERAL SERVICES</h1>
 
-				<br>
+        </div>
+        <hr>
+<div class="details">
+        <div class="left">
+            <strong>Type of Service</strong>
+            <hr>
+            <p>OPD</p>
 
-				<h3>Prescription</h3>
-				<textarea name="pres" id="pres" cols="50" rows="6" disabled>{{ notes[0] }}</textarea>
+        </div>
+        <div class="right">
+            <strong>Price</strong>
+            <hr>
+            <p>0</p>
 
-				<br>
 
-				<h3>Notes</h3>
-				<textarea name="pres" id="pres" cols="50" rows="6" disabled>{{ notes[1] }}</textarea>
-				
-				<br>
-			</div>
-		</div>
-<br><br><br>
-	</div>
+        </div>
+    </div>
+    </div>
+    <div class="center"></div>
+    <div class="box1">
+        <div class="pharmacyupper" style="text-align: center!important;">
+        <h1 style="padding-left:215px!important; padding-top:10px!important; ">Vitals</h1>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
-</html>
+        </div>
+        <hr>
+<div class="details">
+        <div class="left">
+            <p><strong>BP:</strong> 100</p>
+            <p><strong>Sat</strong>: 100</p>
+            <p><strong>Temp</strong>: 100</p>
+
+        </div>
+        <div class="right">
+            <p><strong>W:</strong> 100</p>
+            <p><strong>H</strong>: 100</p>
+
+
+        </div>
+    </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="box2">
+    <div class="box1">
+        <div class="pharmacyupper" style="text-align: center!important;">
+        <h1 style="padding-left:185px!important; padding-top:10px!important; ">Perscription</h1>
+
+        </div>
+        <hr>
+
+    </div>
+    <div class="center"></div>
+    <div class="box1">
+        <div class="pharmacyupper" style="text-align: center!important;">
+        <h1 style="padding-left:215px!important; padding-top:10px!important; ">Notes</h1>
+
+        </div>
+        <hr>
+    </div>
+    </div>
+
+
+  <div class="box" style="height:488px!important;">
+<table class="table1" >
+    <h5 align="center" style="padding:14px; " ><strong>LABORATORY</strong></h5>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td >CBC</td>
+      <td>200</td>
+      <td>1</td>
+      <td>200</td>
+    </tr>
+    <tr>
+     <td >CBC</td>
+      <td>200</td>
+      <td>1</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td >CBC</td>
+      <td>200</td>
+      <td>1</td>
+      <td>200</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <div class="box" style="height:102px!important;">
+<div style="padding-top:40px; padding-right:100px;">
+            <h5 align="end"><strong class="p-5 m-5">Grand Total:</strong>600</h5>
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

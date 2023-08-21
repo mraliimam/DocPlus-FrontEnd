@@ -59,3 +59,28 @@ $(function () {
   $('[data-toggle="popover"]').popover()
 })
 $('#example').tooltip(options)
+
+
+ function openNav() {
+
+  var sidebar = document.getElementById("mySidebar");
+    var mainContent = document.getElementById("main");
+    var header = document.getElementById("myheader");
+    var Sidebar2 =document.getElementById("mySidebar2");
+
+    if (sidebar.style.width === "259px") {
+      sidebar.style.width = "0";
+      mainContent.style.marginLeft = "0";
+      header.style.marginLeft="100px";
+
+
+    }
+     else {
+      sidebar.style.width = "259px";
+      mainContent.style.marginLeft = "259px";
+      header.style.marginLeft="13px";
+
+
+    }
+}
+

@@ -15,9 +15,6 @@ def login_page():
 def home_page():    
     return render_template('home.html')
 
-@app.route('/pharmacy/medicine', methods = ['GET', 'POST'])
-def med_page():
-    pass
 
 @app.route('/form', methods = ['GET', 'POST'])
 def form_page():
@@ -28,12 +25,22 @@ def form_page():
 def reception_page():
     return render_template('reception.html')
 
+@app.route('/patient_list', methods = ['GET', 'POST'])
+def swmc_patient_list():
+    return render_template('swmc.html')
 
-    
+@app.route('/editForm', methods = ['GET', 'POST'])
+def edit_form():
+    return render_template('pData.html')
 
-@app.route('/financials/category', methods = ['GET','POST'])
+@app.route('/financialscategory', methods = ['GET','POST'])
 def financials_page():
-    pass
+    arr=[]
+    return render_template('financials.html',arr=arr)
+
+@app.route('/medicine', methods = ['GET', 'POST'])
+def med_page():
+    return render_template('medform.html')
 
 @app.route('/financials/reports', methods = ['GET'])
 def finReport_page():
@@ -44,21 +51,18 @@ def patient_page():
     return render_template('patient.html')
 
 
-@app.route('/reception/checkout', methods = ['GET','POST'])
+#@app.route('/reception/checkout', methods = ['GET','POST'])
+@app.route('/invoice', methods = ['GET','POST'])
 def bill_page():
-    pass
+    return render_template('bill.html')
 
 
-
+'''
 
 @app.route('/swmc/<name>', methods = ['GET', 'POST'])
 def swmc_page(name):
     pass
-
-@app.route('/patient/editForm', methods = ['GET', 'POST'])
-def patient_edit():
-    pass
-
+'''
 
 @app.route('/pharmacy/add-medicne', methods = ['GET', 'POST'])
 def pharm_page():
@@ -76,8 +80,12 @@ def view_lab_file():
     pass
 @app.route('/expenseForm', methods = ['GET','POST'])
 def expense_page():
-    pass
+    return render_template('expense.html')
 
-@app.route('/home/admin/freePatients')
+@app.route('/homeadmin/freePatients')
 def free_patients():
-    pass
+    return render_template('freePatient.html')
+
+@app.route('/upload')
+def upload_medicine():
+    return render_template('upload.html')

@@ -8,52 +8,93 @@
 {% block content %}
 
 
-<h2 style="text-align: center; color: black; margin-top : 20px;">FINANCIALS</h2>
-
 <br>
-<div class="container">
-<div class = "tab-1">
-  <div class="row" style="padding: 1% 2%;">
-  <h2 class = "col-md-6">Generate Reports</h2>
-</div>
-</div>
+<br>
 
-<div class="table-responsive">
-  <table class = "table table-bordered table-hover table-info" style="text-align: center;">
-    <thead>
-        <tr>  
-            <th scope = "col">NAME</th> 
-            <th scope = "col">FROM</th> 
-            <th scope = "col">TO</th> 
-            <th scope = "col">ACTION</th> 
-        </tr>    
-    </thead>
-    <tbody id = "tables">
 
-        {% for i in arr %}
 
-        <tr>
-            <form action="" method="post">
-                <input type="hidden" name="reportName" value="{{ i }}">
-                <td>{{i}}</td>
+    <div class="container">
+<div class="table">
+
+
+    <div class="pharmacyupper">
+        <h1 style="padding-left:10px!important; padding-top:10px!important;">Generate Reports</h1>
+
+    </div>
+
+    <table>
+        <br>
+        <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <form action="">
+                <td>Financial Report</td>
+
+              <td>
+              <input type="date" class = 'form-control'></td>
                 <td>
-                    <input class = 'form-control col-md-8' type="date" name="from" id="from" style="display: inline-block;" required>
+              <input type="date" class = 'form-control'></td>
+                <td><img class="actions1" src="./static/view.png" alt="" data-toggle="tooltip" data-placement="top" title="View Report">
                 </td>
+</form>
+            </tr>
+            <tr>
+              <form action="">
+                <td>Financial Report</td>
+
+              <td>
+              <input type="date" class = 'form-control'></td>
                 <td>
-                    <input class = 'form-control col-md-8' type="date" name="to" id="to" style="display: inline-block;" required>
+              <input type="date" class = 'form-control'></td>
+                <td><img class="actions1" src="./static/view.png" alt="" data-toggle="tooltip" data-placement="top" title="View Report">
                 </td>
+</form>
+            </tr>
+            <tr>
+              <form action="">
+                <td>Financial Report</td>
+
+              <td>
+              <input type="date" class = 'form-control'></td>
                 <td>
-                    <button class = "btn btn-md btn-success" >VIEW REPORT</button>
+              <input type="date" class = 'form-control'></td>
+                <td><img class="actions1" src="./static/view.png" alt="" data-toggle="tooltip" data-placement="top" title="View Report">
                 </td>
-            </form>
-        </tr>
+</form>
+            </tr>
+            <tr>
+              <form action="">
+                <td>Financial Report</td>
 
-        {%endfor%}
+              <td>
+              <input type="date" class = 'form-control'></td>
+                <td>
+              <input type="date" class = 'form-control'></td>
+                <td><img class="actions1" src="./static/view.png" alt="" data-toggle="tooltip" data-placement="top" title="View Report">
+                </td>
+</form>
+            </tr>
 
-    </tbody>
 
-  </table>
+
+
+        </tbody>
+    </table>
+
+
+
 </div>
-</div>
+
+    </div>
+
   
 {% endblock %}
