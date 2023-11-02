@@ -1,0 +1,107 @@
+
+{% extends 'base.html' %}
+
+{%block title%}
+  Reports Page
+{% endblock %}
+
+{% block content %}
+
+<h2 style="text-align: center; color: white; margin-top : -35px;">Patient Record</h2>
+<br>
+
+<div>
+  <table class = "table table-bordered table-hover table-info" style="text-align: center;">
+    <thead>
+        <tr>
+          {% for i2 in cols2 %}
+
+            
+                <th scope="col">{{i2.upper()}}</i></th>
+            
+            
+            {%endfor%} 
+            
+  
+        </tr>    
+    </thead>
+    <tbody id = "tables">
+        {%for item2 in record%}
+            <tr>
+                {% for att2 in cols2 %}
+                    
+                    <td>{{ item2[att2] }}</td>
+                  
+                {% endfor %}
+            </tr>
+        {%endfor%}                            
+    </tbody>
+
+  </table>
+
+
+  <br> <br>
+
+</div>
+
+<h2 style="text-align: center; color: white; margin-top : -35px;">Reports</h2>
+
+<br>
+<div>
+<div class = "tab-1">
+  <div class="row" style="padding: 1% 2%;">
+  <h2 class = "col-md-6">Add Labs</h2>
+  <input class="form-control col-md-6" id="myInput" type="text" placeholder="Search..">
+</div>
+</div>
+<div class="table-responsive">
+  <table class = "table table-bordered table-hover table-info" style="text-align: center;">
+    <thead>
+        <tr>
+          {% for i in cols %}
+
+                {% if i != 'filename' %}
+                <th scope="col">{{i.upper()}}</i></th>
+                {%endif%}
+            
+            {%endfor%} 
+            
+            <th scope = "col">Actions</th> 
+        </tr>    
+    </thead>
+    <tbody id = "tables">
+        {%for item in items%}
+            <tr>
+                {% for att in cols %}
+                {% if att != 'filename' %}
+                    <td>{{ item[att] }}</td>
+                  {% endif %}
+                {% endfor %}
+              
+                
+                  {% if item['Name'] in arr and item['filename']!=None%}
+                  <td style = "width: 400px;">
+                  <div>
+                  <div style = "text-align: center; width: 100px; display: inline-block;">
+                    <form action="" method="post" >
+                      <input id = 'lab' name = 'lab' type = 'hidden' value = "{{ item }}">
+                      
+                      <button id = "view{{item['id']}}" name = 'action' value = 'VIEW' class="btn btn-outline btn-info" type="submit">View File</button>
+                      
+                      <!-- <button  id = "b{{item['id']}}"  name = 'action' value = 'DEL' class="btn btn-outline btn-danger" type="submit">Remove</button> -->
+                    </form>
+                  </div>
+                </td>
+                {%endif%}
+                  
+                  
+            </tr>
+        {%endfor%}                            
+    </tbody>
+
+  </table>
+
+</div>
+</div>
+  
+{% endblock %}

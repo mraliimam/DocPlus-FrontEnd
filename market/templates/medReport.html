@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Medicine Report</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleMed.css')}}">
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="invoice_wrapper">
+		<div class="header">
+			<div class="logo_invoice_wrap">
+				<div class="logo_sec">
+					<img src="{{ url_for('static', filename='Ready.png')}}" alt="code logo">
+					<div class="title_wrap">
+						<p class="title bold">Salhad Welfare Medical Center</p>
+						<p class="sub_title">Shop # 101M, Mohallah Madni</p>
+						<p class="sub_title">P.O. Salhad, Tehsil and District Abbottabad</p>
+					</div>
+				</div>
+				
+			</div>
+			<div class="bill_total_wrap">
+				<div class="bill_sec">
+
+					  <p class="bold name">REPORT DETAILS:</p>
+					  <br>
+					  <p>From Date:  <strong>{{ fromDate }}</strong></p> 
+			        <span>
+			           To Date:     <strong>{{ toDate }}</strong><br/>
+			        </span>
+				</div>
+			</div>
+		</div>
+		<div class="body">
+			<h1 class="title">PHARMACY SALES REPORT</h1>
+			<div class="main_table">
+				<div class="table_header">
+					<div class="row">
+						<div class="col col_des">ITEM DESCRIPTION</div>
+						<div class="col col_price">SALE RATE </div>
+						<div class="col col_qty">SUMMARY</div>
+						<div class="col col_total">TOTAL</div>
+					</div>
+				</div>
+				<div class="table_body">
+					{% for item in data %}
+
+					<div class="row">
+						<div class="col col_des">
+							<p class="bold">{{ item[1] }}</p>
+							
+						</div>
+						<div class="col col_price">
+							<p>{{ item[2] }}</p>
+						</div>
+						<div class="col col_qty">
+							<p>Total Quantity Sold:</p>
+							<p>Entry of Stock</p>
+							<p>Purchse Amount:</p>
+							<p>Market Value:</p>
+							<p>Discount:</p>
+							<p>Available Stock:</p>												
+							<p>Available Stock Price:</p>												
+							<p>Net Sold Items:</p>
+							<p>Net Sale:</p>
+							<p>Net Purchse:</p>
+							<p>Net Profit:</p>
+						</div>
+						<div class="col col_total">
+							<p>{{ item[3] }}</p>
+							<p>{{ item[4] }}</p>
+							<p>{{ item[5] }}</p>
+							<p>{{ item[6] }}</p>
+							<p>{{ item[7] }}</p>
+							<p>{{ item[8] }}</p>
+							<p>{{ item[12] }}</p>
+							<p>{{ item[3] }}</p>
+							<p>{{ item[9] }}</p>
+							<p>{{ item[10] }}</p>
+							<p>{{ item[11] }}</p>
+						</div>
+					</div>
+					{%endfor%}
+					
+					<div class="row">
+						<div class="col col_des">
+							<p class="bold">Grand Total</p>	
+						</div>
+						<div class="col col_price">
+							<p></p>
+						</div>
+					
+						<div class="col col_qty">
+							<strong>
+								<p>Discount:</p>						
+								<p>Net Sold Items:</p>
+								<p>Grand Net Sale:</p>
+								<p>Grand Net Purchse:</p>
+								<p>Grand Net Profit:</p>
+								<p>Grand Stock Price:</p>
+							</strong>
+						</div>
+						<div class="col col_total">
+							<strong>
+								<p>{{ total[0] }}</p>
+								<p>{{ total[1] }}</p>
+								<p>{{ total[2] }}</p>
+								<p>{{ total[3] }}</p>
+								<p>{{ total[4] }}</p>
+								<p>{{ total[5] }}</p>
+							</strong>
+						</div>
+					</div>
+				</div>
+
+			</div>	
+	
+		</div>
+		
+		
+	</div>
+</div>
+
+</body>
+</html>

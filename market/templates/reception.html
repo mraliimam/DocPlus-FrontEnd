@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Reception Page
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+<div class="container">
+<div>
+<div class="upper3divs">
+    <div class="total_patient">
+            <div class="menuicon">&#8942;</div>
+        <img src="./static/admin.png" alt="Image" class="patient_pic">
+        <div>
+        <span><h3 class="count">1568</h3></span>
+        <small class="small">Total Patient</small>
+            </div>
+
+
+    </div>
+    <div class="pending_patient">
+<div class="menuicon">&#8942;</div>
+        <img src="./static/admin.png" alt="Image" class="patient_pic">
+        <div>
+        <span><h3 class="count">256</h3></span>
+        <small class="small">Pending Patient</small>
+            </div>
+    </div>
+
+
+
+    <div class="checked_patient">
+<div class="menuicon">&#8942;</div>
+        <img src="./static/admin.png" alt="Image" class="patient_pic">
+        <div>
+        <span><h3 class="count">300</h3></span>
+        <small class="small">Checked Patient</small>
+            </div>
+    </div>
+</div>
+    <div class="lower2divs">
+
+    <div class="re_register_patient">
+    <h1>Re- Register Patient</h1>
+        <div class="button_parent">
+        <a href="#" class="Add btn"> + Add</a>
+            </div>
+
+    </div>
+    <div class="add_patient">
+    <h1>Add Patient</h1>
+        <div class="button_parent">
+        <a href="#"  class="Add btn"> + Add</a>
+            </div>
+    </div>
+    </div>
+</div>
+
+    <div class="pharmacy">
+    <div class="pharmacyupper">
+        <h1>Pharmacy</h1>
+        <a href="#" class="view">View More</a>
+    </div>
+        <div style="text-align:center; margin-top:0px!important;">
+        <img src="./static/pharmacy.png" alt="Pharmacy" class="pharmacyimage">
+            </div>
+        <div>
+
+        </div>
+    </div>
+
+</div>
+<div class="container">
+<div class="table">
+
+
+    <div class="pharmacyupper">
+        <h1>Check Patients</h1>
+        <a href="#" class="view">View More</a>
+    </div>
+
+    <table>
+        <br>
+        <thead>
+            <tr>
+                <th>MRN</th>
+                <th>Name</th>
+                <th>Father's Name</th>
+                <th>Date of Birth</th>
+                <th>Doctor</th>
+                <th>Actions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Free</td>
+                <td><img  class="record" src="./static/admin.png" alt="alt" >Mohammad Ali</td>
+                <td>xyz</td>
+                <td>23/12/2021</td>
+                <td>Dr.Ibrar</td>
+                <td><img class="actions" src="./static/preview.png" alt="" data-toggle="tooltip" data-placement="top" data-html="true" title ="Preview">
+                    <img  class="actions" src="./static/checkout.png" alt="" data-toggle="tooltip" data-placement="top" title="Checkout">
+                <img class="actions1" src="./static/view.png" alt="" data-toggle="tooltip" data-placement="top" title="View">
+                </td>
+
+            </tr>
+        <tr>
+                <td>Free</td>
+                <td><img  class="record" src="./static/admin.png" alt="alt" >Mohammad Ali</td>
+                <td>xyz</td>
+                <td>23/12/2021</td>
+                <td>Dr.Ibrar</td>
+                <td><img class="actions" src="./static/preview.png" alt="" data-toggle="tooltip" data-placement="top" data-html="true" title ="Preview">
+                    <img  class="actions" src="./static/checkout.png" alt="" data-toggle="tooltip" data-placement="top" title="Checkout">
+                <img class="actions1" src="./static/view.png" alt="" data-toggle="tooltip" data-placement="top" title="View">
+                </td>
+
+            </tr>
+        <tr>
+                <td>Free</td>
+                <td><img  class="record" src="./static/admin.png" alt="alt" >Mohammad Ali</td>
+                <td>xyz</td>
+                <td>23/12/2021</td>
+                <td>Dr.Ibrar</td>
+                <td><img class="actions" src="./static/preview.png" alt="" data-toggle="tooltip" data-placement="top" data-html="true" title ="Preview">
+                    <img  class="actions" src="./static/checkout.png" alt="" data-toggle="tooltip" data-placement="top" title="Checkout">
+                <img class="actions1" src="./static/view.png" alt="" data-toggle="tooltip" data-placement="top" title="View">
+                </td>
+
+            </tr>
+        <tr>
+                <td>Free</td>
+                <td><img  class="record" src="./static/admin.png" alt="alt" >Mohammad Ali</td>
+                <td>xyz</td>
+                <td>23/12/2021</td>
+                <td>Dr.Ibrar</td>
+                <td><img class="actions" src="./static/preview.png" alt="" data-toggle="tooltip" data-placement="top" data-html="true" title ="Preview">
+                    <img  class="actions" src="./static/checkout.png" alt="" data-toggle="tooltip" data-placement="top" title="Checkout">
+                <img class="actions1" src="./static/view.png" alt="" data-toggle="tooltip" data-placement="top" title="View">
+                </td>
+
+            </tr>
+        <tr>
+                <td>Free</td>
+                <td><img  class="record" src="./static/admin.png" alt="alt" >Mohammad Ali</td>
+                <td>xyz</td>
+                <td>23/12/2021</td>
+                <td>Dr.Ibrar</td>
+                <td><img class="actions" src="./static/preview.png" alt="" data-toggle="tooltip" data-placement="top" data-html="true" title ="Preview">
+                    <img  class="actions" src="./static/checkout.png" alt="" data-toggle="tooltip" data-placement="top" title="Checkout">
+                <img class="actions1" src="./static/view.png" alt="" data-toggle="tooltip" data-placement="top" title="View">
+                </td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
+</div>
+</div>
+
+{% endblock %}

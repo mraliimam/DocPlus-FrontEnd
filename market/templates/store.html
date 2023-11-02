@@ -1,0 +1,135 @@
+
+{% extends 'base.html' %}
+
+{%block title%}
+  {{name.upper()}} Page
+{% endblock %}
+
+{% block content %}
+
+<h2 style="text-align: center; color: white; margin-top : -35px;">Patient Record</h2>
+<br>
+
+<div>
+  <table class = "table table-bordered table-hover table-info" style="text-align: center;">
+    <thead>
+        <tr>
+          {% for i2 in cols2 %}
+
+            
+                <th scope="col">{{i2.upper()}}</i></th>
+            
+            
+            {%endfor%} 
+            
+  
+        </tr>    
+    </thead>
+    <tbody id = "tables">
+        {%for item2 in record%}
+            <tr>
+                {% for att2 in cols2 %}
+                    
+                {% if att2 == 'Prescription' %}
+                <td><textarea name="{{att}}" id="{{att}}" cols="30" rows="3" readonly style="background: transparent; border: 0cm;">{{ item2[att2] }}</textarea></td>
+              
+        
+                {% else %}
+                  <td>{{ item2[att2] }}</td>
+                {% endif %}
+                  
+                {% endfor %}
+            </tr>
+        {%endfor%}                            
+    </tbody>
+
+  </table>
+
+
+  <br> <br>
+
+</div>
+
+<h2 style="text-align: center; color: white; margin-top : -35px;">{{name.upper()}}</h2>
+
+<br>
+<div>
+<div class = "tab-1">
+  <div class="row" style="padding: 1% 2%;">
+  <h2 class = "col-md-6">Add Labs</h2>
+  <input class="form-control col-md-6" id="myInput" type="text" placeholder="Search..">
+</div>
+</div>
+<div class="table-responsive">
+  <table class = "table table-bordered table-hover table-info" style="text-align: center;">
+    <thead>
+        <tr>
+          {% for i in cols %}
+
+            {% if i.upper() != 'LAB_TYPE' %}
+                <th scope="col">{{i.upper()}}</i></th>
+            {% endif %}
+            
+            {%endfor%} 
+            
+            <th scope = "col">Actions</th> 
+        </tr>    
+    </thead>
+    <tbody id = "tables">
+        {%for item in items%}
+            <tr>
+                {% for att in cols %}
+                {% if att.upper() != 'LAB_TYPE' %}
+                    <td>{{ item[att] }}</td>
+                  {% endif %}
+                {% endfor %}
+              
+                
+                  {% if item['Name'] in arr %}
+                  <td style = "width: 400px;">
+                  <div>
+                  <div style = "text-align: center; width: 100px; display: inline-block;">
+                    <form action="" method="post" >
+                      <input id = 'lab' name = 'lab' type = 'hidden' value = "{{ item }}">
+                      
+                      <!-- <button id = "view{{item['id']}}" name = 'action' value = 'VIEW' class="btn btn-outline btn-info" type="submit" target="_blank">View File</button> -->
+                      <a class="btn btn-outline btn-info btn-sm" href="{{ url_for('view_lab_file', id = record[0][0], type = item['Name']) }}" target="_blank">View File</a>
+                      
+                      <!-- <button  id = "b{{item['id']}}"  name = 'action' value = 'DEL' class="btn btn-outline btn-danger" type="submit">Remove</button> -->
+                    </form>
+                  </div>
+  
+                  <div style = "text-align: center; width: 200px; display: inline-block;">
+                    <form action="" method="post" enctype="multipart/form-data">
+                      <input id = 'lab' name = 'lab' type = 'hidden' value = "{{ item }}">
+                      <input type="file" name="file" class="form-control-sm form-control-file">
+                      <button id = "b{{item['id']}}" name = 'action' value = 'Upload' type="submit" class = "btn btn-sm btn-success">Upload</button>
+                    </form>
+                  </div>
+                </td>
+                  {%else%}
+                  <td>
+                  <div>
+                  <form action="" method="post">
+                    <input id = 'lab' name = 'lab' type = 'hidden' value = "{{ item }}">
+                    <button  id = "a{{item['id']}}" name = 'action' value = 'ADD' class="btn btn-outline btn-info" type="submit">ADD</button>
+                    <!-- <button  id = "b{{item['id']}}"  name = 'action' value = 'DEL' class="btn btn-outline btn-danger" type="submit">Remove</button> -->
+                  </form>
+                </div>
+              </div>
+            </td>
+                {%endif%}
+                  
+            </tr>
+        {%endfor%}                            
+    </tbody>
+
+  </table>
+  <form action = "" method="post">
+    <!-- <button name = 'action' value = 'SUB' class="btn btn-outline btn-success btn-lg" type="submit">Submit</button> -->
+    <button name = 'action' value = 'Save' class="btn btn-outline btn-success btn-lg" type="submit">Save</button>
+  </form>
+</div>
+</div>
+  
+{% endblock %}

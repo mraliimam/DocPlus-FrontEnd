@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{%block title%}
+  {{name.upper()}} Page
+{% endblock %}
+
+{% block content %}
+
+<h2 style="text-align: center; color: white; margin-top : -35px;">Patient Record</h2>
+<br>
+
+<div>
+  <table class = "table table-bordered table-hover table-info" style="text-align: center;">
+    <thead>
+        <tr>
+          {% for i2 in cols2 %}
+
+            
+                <th scope="col">{{i2.upper()}}</i></th>
+            
+            
+            {%endfor%} 
+            
+  
+        </tr>    
+    </thead>
+    <tbody id = "tables">
+        {%for item2 in record%}
+            <tr>
+                {% for att2 in cols2 %}
+
+                {% if att2 == 'Prescription' %}
+                <td><textarea name="{{att}}" id="{{att}}" cols="30" rows="3" readonly style="background: transparent; border: 0cm;">{{ item2[att2] }}</textarea></td>              
+                {% else %}
+                  <td>{{ item2[att2] }}</td>
+                {% endif %}
+                    
+                {% endfor %}
+            </tr>
+        {%endfor%}                            
+    </tbody>
+
+  </table>
+
+
+  <br> <br>
+
+</div>
+
+<h2 style="text-align: center; color: white; margin-top : -35px;">{{name.upper()}}</h2>
+
+<br>
+<div>
+<div class = "tab-1">
+  <div class="row" style="padding: 1% 2%;">
+  <h2 class = "col-md-6">Add Medicines</h2>
+  <input class="form-control col-md-6" id="myInput" type="text" placeholder="Search..">
+</div>
+</div>
+<div class="table-responsive" style="height: 40rem;">
+  <table class = "table table-bordered table-hover table-info" style="text-align: center;">
+    <thead>
+        <tr style="position: sticky; top: 0; background-color: #bee5eb;">
+          {% for i in cols %}
+
+            <th scope="col">{{i}}</i></th>
+            
+            
+            {%endfor%} 
+            
+            <th scope = "col">Actions</th> 
+        </tr>    
+    </thead>
+    <tbody id = "tables">
+        {%for item in items%}
+            <tr>
+                {% for att in cols %}
+                {% if att != 'lab_type' %}
+                    <td>{{ item[att] }}</td>
+                  {% endif %}
+                {% endfor %}
+                <td>
+                  
+                  <form action="" method="post">
+                    <input id = 'med' name = 'med' type = 'hidden' value = "{{ item }}">
+                    <input type="number" name="number" id="medcount" min="0" max = "{{item['Stock']}}" value>
+                    <button name = 'action' value = 'ADD' class="btn btn-outline btn-success" type="submit">ADD</button>
+                  </form>
+                  
+                
+                </td>
+                
+            </tr>
+        {%endfor%}                            
+    </tbody>
+
+  </table>
+  <form action = "" method="post">
+    <button name = 'action' value = 'SUB' class="btn btn-outline btn-success btn-lg" type="submit">Submit</button>
+  </form>
+</div>
+</div>
+  
+{% endblock %}

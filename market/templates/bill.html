@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  INVOICE
+{% endblock %}
+
+{% block content %}
+
+<div class="container maincontainer" >
+<div class="box">
+<div class="pharmacyupper" >
+        <h1 style="padding-left:10px!important; padding-top:10px!important;">Patient Details</h1>
+
+    </div>
+<div class="details">
+        <div class="left">
+            <p><strong>Name:</strong> Mubashar</p>
+            <p><strong>MRN Number</strong>: 123456</p>
+            <p><strong>CNIC</strong>: 1234567890</p>
+        </div>
+        <div class="right" style="margin-left:450px;">
+            <p><strong>Date</strong>: April 15, 2023</p>
+            <p><strong>Invoice #</strong>: 06</p>
+
+
+        </div>
+    </div>
+</div>
+  <div class="box2">
+    <div class="box1">
+        <div class="pharmacyupper" style="text-align: center!important;">
+        <h1 style="padding-left:155px!important; padding-top:10px!important; ">GENERAL SERVICES</h1>
+
+        </div>
+        <hr>
+<div class="details">
+        <div class="left">
+            <strong>Type of Service</strong>
+            <hr>
+            <p>OPD</p>
+
+        </div>
+        <div class="right">
+            <strong>Price</strong>
+            <hr>
+            <p>0</p>
+
+
+        </div>
+    </div>
+    </div>
+    <div class="center"></div>
+    <div class="box1">
+        <div class="pharmacyupper" style="text-align: center!important;">
+        <h1 style="padding-left:215px!important; padding-top:10px!important; ">Vitals</h1>
+
+        </div>
+        <hr>
+<div class="details">
+        <div class="left">
+            <p><strong>BP:</strong> 100</p>
+            <p><strong>Sat</strong>: 100</p>
+            <p><strong>Temp</strong>: 100</p>
+
+        </div>
+        <div class="right">
+            <p><strong>W:</strong> 100</p>
+            <p><strong>H</strong>: 100</p>
+
+
+        </div>
+    </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="box2">
+    <div class="box1">
+        <div class="pharmacyupper" style="text-align: center!important;">
+        <h1 style="padding-left:185px!important; padding-top:10px!important; ">Perscription</h1>
+
+        </div>
+        <hr>
+
+    </div>
+    <div class="center"></div>
+    <div class="box1">
+        <div class="pharmacyupper" style="text-align: center!important;">
+        <h1 style="padding-left:215px!important; padding-top:10px!important; ">Notes</h1>
+
+        </div>
+        <hr>
+    </div>
+    </div>
+
+
+  <div class="box" style="height:488px!important;">
+<table class="table1" >
+    <h5 align="center" style="padding:14px; " ><strong>LABORATORY</strong></h5>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td >CBC</td>
+      <td>200</td>
+      <td>1</td>
+      <td>200</td>
+    </tr>
+    <tr>
+     <td >CBC</td>
+      <td>200</td>
+      <td>1</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td >CBC</td>
+      <td>200</td>
+      <td>1</td>
+      <td>200</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <div class="box" style="height:102px!important;">
+<div style="padding-top:40px; padding-right:100px;">
+            <h5 align="end"><strong class="p-5 m-5">Grand Total:</strong>600</h5>
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Form Page
+{% endblock %}
+
+{% block content %}
+
+  <div class = 'container p-5'>
+      <form method = 'post' class = 'form'>
+         <div class="form1">
+          <h3>
+              Patient Data
+          </h3>
+
+          <br>
+          <div class = row>
+            <div class = 'col-md-4'>
+              <label for="mrn">MRN</label>
+              <input type="text" class = 'form-control' id="mrn" placeholder = 'MRN'>
+
+
+        </div>
+        <div class = 'col-md-4'>
+          <label for="FullName">Full Name</label>
+          <input type="text" class = 'form-control' id="FullName" placeholder = 'Full Name'>
+
+          </div>
+
+          <div class = 'col-md-4'>
+            <label for="father">Father Name / Husband Name</label>
+          <input type="text" class = 'form-control' id="father" placeholder = 'Father Name / Husband Name'>
+
+            </div>
+
+          
+        </div>
+        
+        <br>
+        
+        <div class = 'row'>
+          <div class = 'col-2'>
+          <label for="gender">Gender</label>
+          <input type="text" class = 'form-control' id="gender" placeholder = 'Gender'>
+
+
+          </div>  
+          <div class = 'col-md-3'>
+            <label for="DateofBirth">Date of Birth</label>
+          <input type="text" class = 'form-control' id="DateofBirth" placeholder = 'Date of Birth'>
+
+
+            </div>
+            <div class="col-md-7">
+              <label for="Address">Address</label>
+          <input type="text" class = 'form-control' id="Address" placeholder = 'Address'>
+
+
+              </div>
+            </div>
+            <br>
+            <div class="row">
+          <div class="col-md-6">
+             <label for="CNIC">CNIC</label>
+          <input type="text" class = 'form-control' id="CNIC" placeholder = 'CNIC'>
+
+          </div>
+          <div class="col-md-6">
+             <label for="PhoneNo">Phone No</label>
+          <input type="text" class = 'form-control' id="PhoneNo" placeholder = 'Phone No'>
+
+          </div>
+
+        
+        </div>
+        <br>
+
+        <div class="row">
+          <div class = 'col-md-3'>
+              <label for="Type">Type of Service</label>
+          <input type="text" class = 'form-control' id="Type" placeholder = 'Type of Service'>
+          </div>
+
+
+          
+
+          <div class="col-sm-3 c-box" >
+            <label for="pharmacy">Pharmacy</label>
+            <input type="checkbox" id="pharmacy">
+          </div>
+          <div class="col-sm-3 c-box">
+            <label for="Laboratory">Laboratory</label>
+            <input type="checkbox" id="Laboratory">
+          </div>
+          <div class="col-sm-3 c-box">
+            <label for="Radiology">Radiology</label>
+            <input type="checkbox" id ="Radiology">
+          </div>
+
+          
+        </div>
+        
+        <br>
+        <br>
+
+</div>
+
+        <div class="form1">
+
+        <h3>Vitals</h3>
+        <br>
+        <div class = row>
+            <div class = 'col-md-4'>
+              <label for="Blood">Blood Pressure</label>
+              <input type="text" class = 'form-control' id="Blood" placeholder = 'Blood Pressure'>
+
+
+        </div>
+        <div class = 'col-md-4'>
+          <label for="Temperature">Temperature</label>
+          <input type="text" class = 'form-control', id="Temperature" placeholder = 'Temperature'>
+
+          </div>
+
+          <div class = 'col-md-4'>
+            <label for="Saturation">Saturation</label>
+          <input type="text" class = 'form-control', id="Saturation" placeholder = 'Saturation'>
+
+            </div>
+
+
+        </div>
+        <br>
+
+        <div class = 'row'>
+          <div class = 'col-2'>
+          <label for="Weight">Weight</label>
+          <input type="text" class = 'form-control' id="Weight" placeholder = 'Weight'>
+
+
+          </div>
+          <div class = 'col-md-3'>
+            <label for="Height">Height</label>
+          <input type="text" class = 'form-control' id="Height" placeholder = 'Height'>
+
+
+            </div>
+            <div class="col-md-7">
+              <label for="SelectLabs">Select Labs</label>
+          <input type="text" class = 'form-control' id="SelectLabs" placeholder = 'Select Labs'>
+
+
+              </div>
+            </div>
+          <br>
+          <div class = row>
+            <div class = 'col-md-4'>
+              <label for="Provider">Provider</label>
+              <input type="text" class = 'form-control' id="Provider" placeholder = 'Provider'>
+
+        </div>
+        <div class = 'col-md-4'>
+          <label for="Prescription">Prescription</label>
+          <input type="text" class = 'form-control' id="Prescription" placeholder = 'Prescription'>
+
+          </div>
+
+          <div class = 'col-md-4'>
+            <label for="Notes">Notes</label>
+          <input type="text" class = 'form-control' id="Notes" placeholder = 'Notes'>
+
+            </div>
+
+
+        </div>
+
+
+
+          <br>
+
+          
+
+          <br>
+
+          <button name = "action" value="submit" type="button" class="btn btnsub" >
+            Submit
+          </button>
+            <br>
+            <br>
+
+</div>
+          <!-- Modal -->
+      </form>
+  </div>
+
+
+
+{% endblock %}

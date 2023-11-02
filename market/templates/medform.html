@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Medicine Page
+{% endblock %}
+
+{% block content %}
+<div class = 'container p-5'>
+      <form method = 'post' class = 'form'>
+         <div class="form1">
+          <h3>
+              Add Medicine
+          </h3>
+
+          <br>
+          <div class = row>
+            <div class = 'col-md-4'>
+              <label for="mrn">Batch ID*</label>
+              <input type="text" class = 'form-control' id="mrn" placeholder = 'Batch ID'>
+
+
+        </div>
+        <div class = 'col-md-4'>
+          <label for="FullName">Product Name*</label>
+          <input type="text" class = 'form-control' id="FullName" placeholder = 'Product Name*'>
+
+          </div>
+
+          <div class = 'col-md-4'>
+            <label for="father">Supplier Name*</label>
+          <input type="text" class = 'form-control' id="father" placeholder = 'Supplier Name*'>
+
+            </div>
+
+
+        </div>
+
+        <br>
+
+        <div class = 'row'>
+          <div class = 'col-4'>
+          <label for="gender">Generic Name*</label>
+          <input type="text" class = 'form-control' id="gender" placeholder = 'Generic Name*'>
+
+
+          </div>
+          <div class = 'col-md-4'>
+            <label for="DateofBirth">Company Name*</label>
+          <input type="text" class = 'form-control' id="DateofBirth" placeholder = 'Date of Birth'>
+
+
+            </div>
+            <div class="col-md-4">
+              <label for="Address">Category*</label>
+          <input type="text" class = 'form-control' id="Address" placeholder = 'Category*'>
+
+
+              </div>
+            </div>
+            <br>
+            <div class = 'row'>
+          <div class = 'col-md-3'>
+          <label for="Date">Date Added*</label>
+          <input type="date" class = 'form-control' id="Date" placeholder = 'Date Added'>
+
+
+          </div>
+          <div class = 'col-md-3'>
+            <label for="expire">Expiry Date*</label>
+          <input type="date" class = 'form-control' id="expire" placeholder = 'Expiry Date'>
+
+
+            </div>
+            <div class="col-md-3">
+              <label for="Drug">Drug Type*</label>
+          <input type="text" class = 'form-control' id="Drug" placeholder = 'Drug Type'>
+
+
+              </div>
+              <div class="col-md-3">
+              <label for="stock">Stock Qty*</label>
+          <input type="text" class = 'form-control' id="stock" placeholder = 'Stock Qty'>
+
+
+              </div>
+            </div>
+        <br>
+
+      <div class = 'row'>
+          <div class = 'col-md-3'>
+          <label for="Market">Market Price*</label>
+          <input type="text" class = 'form-control' id="Market" placeholder = 'Market Price'>
+
+
+          </div>
+          <div class = 'col-md-2'>
+            <label for="Purchase">Purchase Price*</label>
+          <input type="text" class = 'form-control' id="Purchase" placeholder = 'Purchase Price'>
+
+
+            </div>
+            <div class="col-md-2">
+              <label for="Subsidy">Subsidy*</label>
+          <input type="text" class = 'form-control' id="Subsidy" placeholder = 'Subsidy'>
+
+
+              </div>
+
+        <div class="col-md-2">
+              <label for="Unit Sale Price">Unit Sale Price*</label>
+          <input type="text" class = 'form-control' id="Unit Sale Price" placeholder = 'Unit Sale Price'>
+
+
+              </div>
+              <div class="col-md-3">
+              <label for="Sale Price">Sale Price*</label>
+          <input type="text" class = 'form-control' id="Sale Price" placeholder = 'Sale Price'>
+
+
+              </div>
+
+            </div>
+
+        <br>
+
+
+
+          <br>
+
+          <button name = "action" value="Save" type="button" class="btn btnsub" >
+            Save
+          </button>
+
+</div>
+
+
+          <!-- Modal -->
+      </form>
+  </div>
+{% endblock %}

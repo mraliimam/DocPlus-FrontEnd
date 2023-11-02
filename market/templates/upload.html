@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{%block title%}
+  Upload Medicines
+{% endblock %}
+
+{% block content %}
+
+<br>
+<br>
+<div class="container p-5 ">
+<div class="mainupload">
+            <div class="pharmacyupper">
+        <h1 style="padding-left:10px!important; padding-top:10px!important;">Upload Medicine</h1>
+ </div>
+    <br>
+        <div class="upload-container">
+         <form action="">
+            <div class="upload-box">
+
+           <div> <img src="./static/upload.png" alt="" style="margin-top:20%; margin-bottom:10px;"></div>
+            <label for="fileInput" >Drag files to upload</label>
+            <input type="file" id="fileInput">
+        </div>
+            <div>
+        <button class=" btn upload-button">Choose File</button>
+                </div>
+            </form>
+            </div>
+</div>
+</div>
+{% endblock %}

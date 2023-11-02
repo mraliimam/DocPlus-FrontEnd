@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Expense Report</title>
+      <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleMed.css') }}">
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="invoice_wrapper">
+		<div class="header">
+			<div class="logo_invoice_wrap">
+				<div class="logo_sec">
+					<img src="{{ url_for('static', filename='Ready.png')}}" alt="code logo">
+					<div class="title_wrap">
+						<p class="title bold">Salhad Welfare Medical Center</p>
+						<p class="sub_title">Shop # 101M, Mohallah Madni</p>
+						<p class="sub_title">P.O. Salhad, Tehsil and District Abbottabad</p>
+					</div>
+				</div>
+				
+			</div>
+			<div class="bill_total_wrap">
+				<div class="bill_sec">
+
+					  <p class="bold name">EXPENSE DETAILS:</p>
+					  <p>From Date:  <strong style="text-align: center;">{{ fromDate }}</strong></p> 
+			        <span>
+			           To Date:     <strong style="text-align: center;">{{ toDate }}</strong><br/>
+			        </span>
+				</div>
+			</div>
+		</div>
+		<div class="body">
+			<h2 class="title">EXPENSE REPORT</h2>
+			
+            <div class="table-responsive" style="height: auto;">
+                <table class = "table table-bordered table-hover" style="text-align: center;">
+                  <thead class="bg-success">
+                      <tr>
+                        {% for i in cols %}
+                          <th scope="col" style="color: white;">{{i.upper()}}</i></th>
+                        {%endfor%}
+                      </tr>    
+                  </thead>
+                  <tbody id = "tables">
+                      {%for item in data%}
+                          <tr>
+                              {% for att in cols %}
+                                  <td class="table-success">{{ item[att] }}</td>
+                              {% endfor %}
+                          </tr>
+                      {%endfor%}
+                            <tr class="bg-success" style="color: white;">
+                                <td colspan="4" >GRAND Total:</td>
+                                <td colspan="3" >PKR {{ total }}</td>
+                            </tr>                            
+                  </tbody>
+                </table>
+              </div>              	
+		</div>
+	</div>
+</div>
+</body>
+</html>
